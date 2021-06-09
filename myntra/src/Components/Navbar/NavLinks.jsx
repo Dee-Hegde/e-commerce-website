@@ -6,7 +6,7 @@ function NavLinks() {
     const data=["men","women","kids","home & living", "beauty"]
     return (
         <div className={styles.navbar1}>
-            {data.map(item=>(<div className={styles.navdiv}>
+            {data.map((item,i)=>(<div className={styles.navdiv} key={i}>
                 <Link  to={`/${item}`}><h4>{item.toUpperCase()}</h4></Link>
             </div>))}
         </div>
