@@ -1,0 +1,32 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600;700&display=swap');
+
+* {
+    font-family: 'Catamaran', sans-serif;
+}
+
+/* * {
+    font-family: sans-serif;
+} */
+
+.fonts {
+    font-size: 28px;
+    color: #3E4152;
+    letter-spacing: 4.3px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 40px;
+    /* line-height: 24px; */
+}
+
+.show {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    padding: 50px;
+}
+
+.showCategory {
+    display: grid;
+    grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+    padding: 50px;
+}
