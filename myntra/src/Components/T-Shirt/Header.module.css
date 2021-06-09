@@ -1,0 +1,13 @@
+#main_div {
+    border: 1px solid red;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px 0px 20px 20px;
+}
+
+.title_div{
+    border: 1px solid red;
+    display: flex;
+    font-family: 'Catamaran', sans-serif;
+    color: #282C3F;
+}
