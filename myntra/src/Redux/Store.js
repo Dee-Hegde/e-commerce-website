@@ -2,10 +2,12 @@ import { applyMiddleware, combineReducers, createStore } from "redux"
 import { compose } from "redux"
 import thunk from "redux-thunk"
 import { loginreducer } from "./Login/reducer"
+import { productsReducer } from "./ProductListing/reducer"
 
 
 const rootreducer = combineReducers({
     loginred:loginreducer,
+    products:productsReducer
 })
 
 

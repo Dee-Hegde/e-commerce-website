@@ -12,7 +12,6 @@
     color: white;
 }
 
-
 #wrapper {
     border: 0px solid blue;
     background-color: #FFFFFF;
@@ -25,6 +24,13 @@
     border: 0px solid green;
     box-sizing: border-box;
     border-bottom: 1px solid #F4F4F5;
+}
+
+#wrapper2 {
+    background-color: #FFFFFF;
+    display: grid;
+    grid-template-columns: 17% 83%;
+    box-sizing: border-box;
 }
 
 
