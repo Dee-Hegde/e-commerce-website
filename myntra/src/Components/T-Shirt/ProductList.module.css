@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+.product_header{
+    text-align: left;
+    padding: 0px 0px 0px 10px;
+    font-family: 'Catamaran', sans-serif;
+    display: grid;
+}
+
+.product_header > div {
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+.product_header > div > div {
+    border: 0px solid blue;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.product_header > div > div:nth-child(2) {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    padding: 0px 0px 0px 20px;
+}
+
+#sort_hover_div {
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 250px;
+    border: 0px solid black;
+    padding: 15px 0px 15px 0px;
+    margin-left: -15px;
+    display: none;
+}
+
+#sort_hover_div > div {
+    padding: 8px 20px 8px 20px;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 14px;
+    color: #282C3F;
+    cursor: pointer;
+    border: 0px solid green;
+}
+
+#sort_hover_div > div:hover {
+    background-color: #F4F4F5;
+}
+
+.product_header > div > div:nth-child(2) > div:hover #sort_hover_div{
+    display: block;
+    box-shadow: 0px 1px 1px black;
+}
+
+.product_header > div > div:nth-child(2) > div:hover {
+    border: none;
+    border-top: 1px solid grey;
+    border-radius: 0em;
+    box-shadow: 0px 1px 1px black;
+}
+
+.product_header > div > div:nth-child(2) > div {
+    border: 1px solid #e5e5e7;
+    width: 250px;
+    box-sizing: border-box;
+    padding: 8px 15px 8px 15px;
+    margin-top: 0px;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 14px;
+    border-radius: 0.2em;
+}
+
+
+.product_header > div > div > select {
+    margin-left: 15px;
+    padding: 3px;
+    border-radius: 1em;
+    outline: none;
+    border: none;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 14px;
+    color: #282C3F;
+}
+
+.product_header > div > div > select:hover { 
+    background-color: #F4F4F5;
+}
