@@ -19,6 +19,7 @@ function NavRight() {
             <h5><img className={styles.userlogo} src={bag} alt="" />
                 <br/>Bag</h5>
             </div>
+            
 
         </div>
     )
