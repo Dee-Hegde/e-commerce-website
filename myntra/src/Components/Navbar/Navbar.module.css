@@ -19,33 +19,28 @@
     flex-direction: row;
     justify-content: space-around;
     background-color: white;
-    height: 12vh;
+    height: 10vh;
 
 }
-.navbar1{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: white;
-    width: 35%;
-    margin-left: 0%;
-    
 
-}
-.navdiv{
-    background-color: white;
-    text-align: center;
+/* Navigation bar links */
 
-}
-.navdiv > a{
+.navLinks{
     text-decoration: none;
     color:rgb(40,44,63) ;
     font-size: 15px;
 }
-.navdiv> a> h4{
-    padding: 5px;
-    background-color: white;
+.navLinks2{
+    text-decoration: none;
+    color:rgb(40,44,63) ;
+    font-size: 12px;
+    margin-left: 20px;
 }
+.navLinks>h4{
+  background-color: white;
+}
+
+/* searchBar */
 .navserach{
     width: 35%;
     background-color: white;
@@ -72,6 +67,9 @@
     margin-top: 5px;
     background-color: whitesmoke;
 }
+
+/* userbar */
+
 .userlogo{
     width: 20px;
     margin: 0%;
@@ -94,4 +92,16 @@
 .userdiv > div>h5 {
     background-color: white;
     cursor: pointer;
+}
+.navbar :hover .userdiv{
+        background-color: black;
+    
+}
+
+/* Hover Links */
+
+.hoverdiv{
+    width: 25%;
+    background-color: rgb(243, 73, 101);
+    background-color: pi;
 }
