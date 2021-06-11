@@ -1,5 +1,6 @@
 import React from 'react'
-import {Switch } from "react-router";
+import {Route, Switch } from "react-router";
+import Home from '../Components/Homepage/Home';
 import Navbar from '../Components/Navbar/Navbar';
 
 function Routes() {
@@ -7,6 +8,9 @@ function Routes() {
         <div>
             <Navbar/>
             <Switch>
+                <Route path="/" exact>
+                    <Home/>
+                </Route>
               
             </Switch>
         </div>
