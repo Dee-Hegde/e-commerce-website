@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./styles.module.css"
+import { Link } from "react-router-dom";
 import images1 from "./Images/TopBrands1.webp";
 import images2 from "./Images/TopBrands2.webp";
 import images3 from "./Images/TopBrands3.jpg";
@@ -13,7 +14,20 @@ import images10 from "./Images/TopBrands10.webp";
 
 const TopBrands = () => {
 
-    const topBrandImages = [images1, images2, images3, images4, images5, images6, images7, images8, images9, images10]
+    const topBrandImages = [
+        { src: images1, brand:"USPoloAssn", discount:60 },
+        { src: images2, brand:"Levis", discount:70 },
+        { src: images3, brand:"TommyHilfiger", discount:50 },
+        { src: images4, brand:"Gap", discount:60 },
+        { src: images5, brand:"UnitedColorsOfBenetton", discount:70 },
+        { src: images6, brand:"Jack&Jones", discount:70 },
+        { src: images7, brand:"Nike", discount:50 },
+        { src: images8, brand:"Puma", discount:70 },
+        { src: images9, brand:"Sketchers", discount:40 },
+        { src: images10, brand:"Crocs", discount:50 }
+    ]
+
+    // const topBrandImages = [images1, images2, images3, images4, images5, images6, images7, images8, images9, images10]
 
     // const topBrandImages = [
     //     "https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2020/8/31/1dce9c3e-77fa-48f1-85a3-d3c136c1d73e1598892377652-USPA.jpg",
@@ -34,9 +48,12 @@ const TopBrands = () => {
 
             <div className={styles.show}> 
                 { topBrandImages.map((el,i) => 
-                <div key={i}><img src={el} alt="pic" width="90%" /></div>
+                <Link to={`myntra-fashion-store?brand=${el.brand}&discount=${el.discount}%`}>
+                <div key={i}><img src={el.src} alt="pic" width="90%" /></div>
+                </Link>
                 ) }
             </div>
+
         </div>
     );
 };
