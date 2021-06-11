@@ -6,8 +6,37 @@
 }
 
 .title_div{
-    border: 1px solid red;
+    border: 0px solid red;
     display: flex;
     font-family: 'Catamaran', sans-serif;
     color: #282C3F;
+}
+
+.title_div > div {
+    padding-left: 5px;
+    font-size: 14px;
+    line-height: 14px;
+    cursor: pointer;
+}
+
+.title_div > div:nth-child(3) {
+    font-weight: 800;
+    color: black;
+    letter-spacing: 0.5px;
+}
+
+.items_count {
+    border: 0px solid red;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: left;
+    padding-left: 5px;
+    color: #282C3F;
+    margin-top: 10px;
+}
+
+.items_count > span {
+    color: #878B94;
+    font-weight: normal;
 }

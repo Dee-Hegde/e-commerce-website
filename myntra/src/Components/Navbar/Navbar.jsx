@@ -12,7 +12,6 @@ function Navbar() {
             <NavLinks/>
             <NavSearch/>
             <NavRight/> 
-            
         </div>
     )
 }
