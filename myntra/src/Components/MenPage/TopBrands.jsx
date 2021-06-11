@@ -44,6 +44,7 @@ const TopBrands = () => {
 
     return (
         <div>
+            <br />
             <div className={styles.fonts}>BIGGEST DEALS ON TOP BRANDS</div>
 
             <div className={styles.show}> 
