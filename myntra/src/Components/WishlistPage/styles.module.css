@@ -1,0 +1,26 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600;700&display=swap');
+
+* {
+    font-family: 'Catamaran', sans-serif;
+}
+
+
+.subNav {
+    background-color: #03A685;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.heading {
+    font-size: 20px;
+    color: #282C3F;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 40px;
+    padding-left: 70px;
+}
