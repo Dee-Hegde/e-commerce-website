@@ -1,6 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
 #main_wrapper {
     border: 1px solid red;
-    padding: 20px 20px 50px 20px;
+    padding: 30px 32px 50px 32px;
+    display: grid;
+    grid-template-columns: 18% 18% 18% 18% 18%;
+    gap: 30px;
 }
 
 
+.item_div {
+    border: 1px solid red;
+}
+
+.item_title {
+    text-align: left;
+    font-family: 'Catamaran', sans-serif;
+    margin-left: 10px;
+    font-weight: 700;
+    color: #1f2233;
+}
+
+.item_sub_heading {
+    border: 0px solid red;
+    height: 17px;
+    text-align: left;
+    margin-left: 10px;
+    font-family: 'Catamaran', sans-serif;
+    line-height: 16px;
+    overflow-y: hidden;
+    font-size: 15px;
+    color: #7E818C;
+}
+
+.item_image {
+    width: 100%;
+}
+
+.item_price_div {
+    display: flex;
+    margin-left: 10px;
+    gap: 10px;
+}
+
+.item_price_div > div:nth-child(1) {
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1f2233;
+}
+
+.item_price_div > div:nth-child(2) {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 13px;
+    margin-top: 5px;
+    color: #4a4e5a;
+    text-decoration: line-through;
+}
+
+.item_price_div > div:nth-child(3) {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 13px;
+    margin-top: 5px;
+    color: red;
+}
+
+.price {
+    text-align: left;
+    margin-left: 10px;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1f2233;
+}
