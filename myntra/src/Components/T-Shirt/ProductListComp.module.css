@@ -12,7 +12,8 @@
 
 
 .item_div {
-    border: 1px solid red;
+    border: 0px solid red;
+    height: 360px;
 }
 
 .item_title {
@@ -33,6 +34,7 @@
     overflow-y: hidden;
     font-size: 15px;
     color: #7E818C;
+    margin-top: -2px;
 }
 
 .item_image {
@@ -74,4 +76,80 @@
     font-weight: 700;
     font-size: 18px;
     color: #1f2233;
+}
+
+.dots {
+    background-color: white;
+    border: 1px solid red;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 150px;
+    margin: auto;
+    margin-top: 2px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.wishlist_button {
+    display: flex;
+    border: 1px solid #A9ABB3;
+    width: 190px;
+    margin: auto;
+    margin-top: 5px;
+    border-radius: 0.1em;
+    box-sizing: border-box;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.wishlist_button:hover {
+    border: 1px solid black;
+}
+
+.wishlist_text {
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 800;
+    color: #1f2233;
+    font-size: 14px;
+    margin-top: 1px;
+    margin-left: 5px;
+}
+
+.sizes {
+    text-align: left;
+    margin-left: 11px;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 14px;
+    color: #535665;
+    
+}
+
+.sizes > span {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 16px;
+    color: #A9ABB3;
+}
+
+.hover_div {
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 215px;
+    display: none;
+    margin-top: -48px;
+    box-shadow: 1px 0px 4px grey;
+}
+
+.non_hover_div {
+    display: block;
+}
+
+.item_div:hover .non_hover_div {
+    display: none;
+}
+
+.item_div:hover .hover_div{
+    display: block;
 }
