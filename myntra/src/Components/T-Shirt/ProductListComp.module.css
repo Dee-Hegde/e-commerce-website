@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+#main_wrapper {
+    border: 1px solid red;
+    padding: 30px 32px 50px 32px;
+    display: grid;
+    grid-template-columns: 18% 18% 18% 18% 18%;
+    gap: 30px;
+}
+
+
+.item_div {
+    border: 0px solid red;
+    height: 360px;
+}
+
+.item_title {
+    text-align: left;
+    font-family: 'Catamaran', sans-serif;
+    margin-left: 10px;
+    font-weight: 700;
+    color: #1f2233;
+}
+
+.item_sub_heading {
+    border: 0px solid red;
+    height: 17px;
+    text-align: left;
+    margin-left: 10px;
+    font-family: 'Catamaran', sans-serif;
+    line-height: 16px;
+    overflow-y: hidden;
+    font-size: 15px;
+    color: #7E818C;
+    margin-top: -2px;
+}
+
+.item_image {
+    width: 100%;
+}
+
+.item_price_div {
+    display: flex;
+    margin-left: 10px;
+    gap: 10px;
+}
+
+.item_price_div > div:nth-child(1) {
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1f2233;
+}
+
+.item_price_div > div:nth-child(2) {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 13px;
+    margin-top: 5px;
+    color: #4a4e5a;
+    text-decoration: line-through;
+}
+
+.item_price_div > div:nth-child(3) {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 13px;
+    margin-top: 5px;
+    color: red;
+}
+
+.price {
+    text-align: left;
+    margin-left: 10px;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1f2233;
+}
+
+.dots {
+    background-color: white;
+    border: 1px solid red;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 150px;
+    margin: auto;
+    margin-top: 2px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.wishlist_button {
+    display: flex;
+    border: 1px solid #A9ABB3;
+    width: 190px;
+    margin: auto;
+    margin-top: 5px;
+    border-radius: 0.1em;
+    box-sizing: border-box;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.wishlist_button:hover {
+    border: 1px solid black;
+}
+
+.wishlist_text {
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 800;
+    color: #1f2233;
+    font-size: 14px;
+    margin-top: 1px;
+    margin-left: 5px;
+}
+
+.sizes {
+    text-align: left;
+    margin-left: 11px;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 14px;
+    color: #535665;
+    
+}
+
+.sizes > span {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 16px;
+    color: #A9ABB3;
+}
+
+.hover_div {
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 215px;
+    display: none;
+    margin-top: -48px;
+    box-shadow: 1px 0px 4px grey;
+}
+
+.non_hover_div {
+    display: block;
+}
+
+.item_div:hover .non_hover_div {
+    display: none;
+}
+
+.item_div:hover .hover_div{
+    display: block;
+}

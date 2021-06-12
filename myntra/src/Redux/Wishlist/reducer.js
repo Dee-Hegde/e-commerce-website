@@ -3,10 +3,11 @@ import { GET_WISH_FAILURE, GET_WISH_REQUEST, GET_WISH_SUCCESS, POST_WISH_FAILURE
 const initState = {
     isLoading: false,
     isError: false,
-    isSuccess: false
+    isSuccess: false,
+    wishlistData: []
 }
 
-export const reducer = (state=initState, {type, payload}) => {
+export const wishReducer = (state=initState, {type, payload}) => {
 
     switch (type) {
         
@@ -21,6 +22,8 @@ export const reducer = (state=initState, {type, payload}) => {
         case POST_WISH_SUCCESS :
         return {
             ...state,
+            // wishlistData: [...state.wishlistData, payload],
+            // wishlistData: payload,
             isLoading: false,
             isError: false,
             isSuccess: true
@@ -45,6 +48,7 @@ export const reducer = (state=initState, {type, payload}) => {
         case GET_WISH_SUCCESS :
         return {
             ...state,
+            wishlistData: payload,
             isLoading: false,
             isError: false,
             isSuccess: true

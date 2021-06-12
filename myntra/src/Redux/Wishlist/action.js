@@ -6,10 +6,9 @@ export const postWishRequest = () => {
     }
 }
 
-export const postWishSuccess = (payload) => {
+export const postWishSuccess = () => {
     return {
-        type: "POST_WISH_SUCCESS",
-        payload
+        type: "POST_WISH_SUCCESS"
     }
 }
 
@@ -45,8 +44,8 @@ export const postWishData = payload => dispatch => {
 
     return axios.post("https://masai-project.herokuapp.com/wihlist", payload )
     .then(res => {
-        dispatch( postWishSuccess(res.data) )
-        dispatch( getWishData(payload) )
+        dispatch( postWishSuccess() )
+        dispatch( getWishData() )
     })
     .catch(err=> {
         dispatch( postWishFailure() )
