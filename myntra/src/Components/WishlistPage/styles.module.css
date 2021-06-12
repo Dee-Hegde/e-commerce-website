@@ -1,12 +1,12 @@
-
-/* @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600&display=swap'); */
-
-@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300&display=swap');
 
 * {
     font-family: 'Catamaran', sans-serif;
 }
 
+.navMargin {
+    margin-top: 80px;
+}
 
 .subNav {
     background-color: #03A685;
@@ -23,4 +23,92 @@
     text-align: left;
     padding-top: 40px;
     padding-left: 70px;
+}
+
+.cardCont {
+    /* border: 1px solid red; */
+    padding: 40px 75px;
+    /* width: 230px; */
+    display: grid;
+    grid-template-columns: 21% 21% 21% 21% 21%;
+}
+
+.card {
+    width: 230px;
+    border: 1px solid #E7E7E7;
+    margin-bottom: 50px;
+}
+
+.cancelIcon {
+    width: 23px;
+    height: 23px;
+    border: 1px solid grey;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    position: absolute;
+    margin-left: 198px;
+    margin-top: -308px;
+    border-radius: 50%;
+    color: grey;
+}
+
+.cancelIcon div {
+    background: none;
+    margin-top: -7px;
+}
+
+.buttons {
+    width: 230px;
+    border: 1px solid #E7E7E7;
+    border-right: hidden;
+    border-left: hidden;
+    border-bottom: hidden;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #FF3E6C;
+}
+
+.flexPrice {
+    /* width: 80%; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.titleFont {
+    font-weight: 600;
+    color: #282C3F;
+}
+
+.mrpFont {
+    /* font-weight: 600; */
+    color: #282C3F;
+    font-size: 14px;
+    margin-top: 4px;
+    text-decoration-line: line-through;
+}
+
+.discountFont {
+    font-weight: 600;
+    color: #FF905A;
+    font-size: 14px;
+    margin-top: 4px;
+    /* text-decoration-line: line-through; */
+}
+
+.countFont {
+    font-weight: 300;
+    color: #282C3F;
+    font-size: 18px;
+}
+
+.btnCntShop {
+    color: #2057e2;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 45px;
+    border-radius: 5px;
+    border: 1px solid #194fd6;
 }

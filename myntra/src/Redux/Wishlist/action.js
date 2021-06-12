@@ -39,6 +39,25 @@ export const getWishFailure = (err) => {
     }
 }
 
+export const deleteWishRequest = () => {
+    return {
+        type: "DELETE_WISH_REQUEST"
+    }
+}
+
+export const deleteWishSuccess = () => {
+    return {
+        type: "DELETE_WISH_SUCCESS"
+    }
+}
+
+export const deleteWishFailure = (err) => {
+    return {
+        type: "DELETE_WISH_FAILURE",
+        payload: err
+    }
+}
+
 export const postWishData = payload => dispatch => {
     dispatch( postWishRequest() )
 
@@ -49,6 +68,19 @@ export const postWishData = payload => dispatch => {
     })
     .catch(err=> {
         dispatch( postWishFailure() )
+    })
+}
+
+export const deleteWishData = (idx) => dispatch => {
+    dispatch( deleteWishRequest() )
+
+    return axios.delete(`https://masai-project.herokuapp.com/wihlist/${idx}` )
+    .then(res => {
+        dispatch( deleteWishSuccess() )
+        dispatch( getWishData() )
+    })
+    .catch(err=> {
+        dispatch( deleteWishFailure() )
     })
 }
 
