@@ -1,0 +1,35 @@
+*{
+    background-color: white;
+}
+
+.offersimage{
+    width: 90%;
+    height: 70vh;
+    background-color: white;
+    padding-top: 2.5%;
+    padding-left: 4%;
+    padding-right: 4%;
+    margin-top: 90px;
+}
+/* Exiting deals logo */
+.exitingDeals{
+    height: 10vh;
+    border:5px solid white ;
+}
+/* Exiting deals div */
+.dealsdiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.dealsdiv >img{
+    width: 17%;
+}
+.spotimg{
+    margin-top: 35px;
+    width: 40%;
+}
+.spotimg2{
+    margin-top: 15px;
+    width: 40%;
+}

@@ -29,9 +29,11 @@ const NavLinkdiv= styled.div`
 `
 const LinkContainer= styled.div`
     width: 30%;
+    margin-top: 20px;
     height: 8vh;
     background-color:white;
     margin:2%;
+    padding-top: 4px;
 
 &:hover{
     border-bottom: 3px solid #f04d68;
@@ -42,6 +44,7 @@ const LinkContainer= styled.div`
  display :block;
 }
 `
+
 const Navtitle = styled.p`
     font-size: 12px;
     background-color: white;
