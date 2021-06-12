@@ -1,6 +1,7 @@
 import React from 'react'
 import {Route, Switch } from "react-router";
 import Home from '../Components/Homepage/Home';
+import MensMainPage from '../Components/MenPage/MensMainPage';
 import Navbar from '../Components/Navbar/Navbar';
 
 function Routes() {
@@ -10,6 +11,9 @@ function Routes() {
             <Switch>
                 <Route path="/" exact>
                     <Home/>
+                </Route>
+                <Route path="/men" exact>
+                    <MensMainPage/>
                 </Route>
               
             </Switch>
