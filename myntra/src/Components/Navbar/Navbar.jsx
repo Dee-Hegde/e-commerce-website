@@ -80,7 +80,6 @@ function Navbar() {
             </NavLinkdiv>
             <NavSearch/>
             <NavRight/> 
-            
         </div>
     )
 }
