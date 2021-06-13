@@ -18,6 +18,10 @@
     display: grid;
     grid-template-columns: 17% 83%;
     box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    margin-top: 110px;
 }
 
 #wrapper > div {
@@ -31,6 +35,7 @@
     display: grid;
     grid-template-columns: 17% 83%;
     box-sizing: border-box;
+    margin-top: 62px;
 }
 
 

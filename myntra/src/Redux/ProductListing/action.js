@@ -52,7 +52,7 @@ const getData = (payload) => (dispatch) => {
     })
 }
 
-const getDataFilter = (page) => (dispatch) => {
+const getDataFilterBySort = (page, sort, order) => (dispatch) => {
     dispatch(getDataRequest())
 
     const config = {
@@ -60,7 +60,33 @@ const getDataFilter = (page) => (dispatch) => {
         method : "get",
         params : {
             _page : page,
-            _limit : 50
+            _limit : 50,
+            _sort : sort,
+            _order : order
+        }
+    }
+
+    return axios(config)
+    .then((res) => {
+        dispatch(getDataFilterSuccess(res.data))
+        console.log(res.data)
+    })
+    .catch((err) => {
+        dispatch(getDataFailure(err))
+    })
+}
+
+const getDataFilterByType = (page) => (dispatch) => {
+    dispatch(getDataRequest())
+
+    const config = {
+        url:"/product_data",
+        method : "get",
+        params : {
+            _page : page,
+            _limit : 50,
+            type_like : "NEW SEASON",
+            type_like : "NEW"
         }
     }
 
@@ -75,5 +101,4 @@ const getDataFilter = (page) => (dispatch) => {
 }
 
 
-
-export {getDataRequest, getDataSuccess, getDataFailure, getData, getDataFilter, getDataFilterSuccess}
+export {getDataRequest, getDataSuccess, getDataFailure, getData, getDataFilterBySort, getDataFilterSuccess, getDataFilterByType}
