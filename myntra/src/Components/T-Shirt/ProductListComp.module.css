@@ -37,6 +37,30 @@
     margin-top: -2px;
 }
 
+.tag_wrapper {
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    margin-top: -280px;
+    border: 0px solid red;
+}
+
+.tag_wrapper > img {
+    width: 100%;
+    border: 0px solid red;
+}
+
+.tag_wrapper > div {
+    position: absolute;
+    color: white;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 12px;
+    width: 120px;
+    font-weight: 700;
+    margin-top: -23px;
+    margin-left: -16px;
+}
+
 .item_image {
     width: 100%;
 }
@@ -103,6 +127,7 @@
     box-sizing: border-box;
     padding: 5px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .wishlist_button:hover {
@@ -152,4 +177,86 @@
 
 .item_div:hover .hover_div{
     display: block;
+}
+
+.pagination_wrapper {
+    border: 0px solid red;
+    padding: 25px 0px 70px 0px;
+    grid-column: 1 / 6;
+    /* display: flex;
+    gap: 440px; */
+    display: grid;
+    grid-template-columns: 25% 75%;
+    border-top: 1px solid #d2cbd8;
+    margin-top: 45px;
+}
+
+.sub_pagi_wrapper{
+    display: flex;
+    gap: 170px;
+}
+
+.visi_hidden {
+    visibility: hidden;
+}
+
+.sub_pagi_wrapper > div:nth-child(1), .sub_pagi_wrapper > div:nth-child(3) {
+    border: 1px solid #93959F;
+    box-sizing: border-box;
+    padding: 0px 25px 0px 25px;
+    border-radius: 0.3em;
+    cursor: pointer;
+}
+
+.sub_pagi_wrapper > div:nth-child(1):hover, .sub_pagi_wrapper > div:nth-child(3):hover {
+    border: 1px solid black;
+}
+
+
+.pagi_number{
+    display: flex;
+    gap: 15px;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.pagi_number > div {
+    border: 0px solid red;
+    padding: 0px 10px 0px 10px;
+    height: 35px;
+    border-radius: 0.2em;
+    cursor: pointer;
+}
+
+.pagi_number > div:hover { 
+    border: 1px solid #bab4c0;
+}
+
+.bg_color {
+    background-color: #282C3F;
+    color: white;
+}
+
+
+.pagination_wrapper > div {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    /* margin-top: -5px; */
+    border: 0px solid green;
+}
+
+.pagination_wrapper > div:nth-child(1) {
+    text-align: left;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 9px;
+}
+
+.pagination_wrapper span {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 25px;
+    margin-top: -2px;
 }

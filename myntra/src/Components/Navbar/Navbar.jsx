@@ -5,6 +5,7 @@ import styles from "./Navbar.module.css"
 import NavSearch from "./NavSearch"
 import styled from "styled-components"
 import { Link } from 'react-router-dom'
+import { useHistory } from "react-router-dom"
 
 
 const SearchDiv=styled.div`
@@ -66,6 +67,13 @@ function Navbar() {
         {title:"beauty",
         list:["lipstick","lip gloss","lip liner","eye liner","kajal","foundation"]}
     ]
+    let history = useHistory();
+    const url="result?"
+    const handleClick=(el)=>{
+        el=el.toLowerCase()
+        const param= new URLSearchParams(`${url}category=${el}`)
+        history.push(`${param}`)
+    }
     
 
     return (
@@ -73,10 +81,10 @@ function Navbar() {
             <NavLeft/>
             <NavLinkdiv>
                        {navData.map(item=>(
-                          <LinkContainer>
+                          <LinkContainer >
                             <Link className={styles.navLinks} to={`/${item.title}`}><h4>{item.title.toUpperCase()}</h4></Link>
-                            <SearchDiv>
-                                   {item.list.map(el=>(<Navtitle><Link className={styles.navLinks2} to={`/${el}`}>{el.toUpperCase()}</Link></Navtitle>))}
+                            <SearchDiv >
+                                   {item.list.map(el=>(<Navtitle><p onClick={()=>handleClick(el)} className={styles.navLinks2}>{el.toUpperCase()}</p></Navtitle>))}
                             </SearchDiv>
                             </LinkContainer>
                        ))}

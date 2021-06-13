@@ -1,4 +1,4 @@
-import { GET_DATA_FAILURE, GET_DATA_REQUEST, GET_DATA_SUCCESS } from "./actionType"
+import { GET_DATA_FAILURE, GET_DATA_FILTER, GET_DATA_REQUEST, GET_DATA_SUCCESS } from "./actionType"
 import Axios from "axios"
 
 
@@ -20,6 +20,13 @@ const getDataSuccess = (payload) => {
     }
 }
 
+const getDataFilterSuccess = (payload) => {
+    return {
+        type : GET_DATA_FILTER,
+        payload
+    }
+}
+
 const getDataFailure = (error) => {
     return {
         type : GET_DATA_FAILURE,
@@ -32,7 +39,7 @@ const getData = (payload) => (dispatch) => {
 
     const config = {
         url:"/product_data",
-        method : "get"
+        method : "get",
     }
 
     return axios(config)
@@ -45,6 +52,53 @@ const getData = (payload) => (dispatch) => {
     })
 }
 
+const getDataFilterBySort = (page, sort, order) => (dispatch) => {
+    dispatch(getDataRequest())
+
+    const config = {
+        url:"/product_data",
+        method : "get",
+        params : {
+            _page : page,
+            _limit : 50,
+            _sort : sort,
+            _order : order
+        }
+    }
+
+    return axios(config)
+    .then((res) => {
+        dispatch(getDataFilterSuccess(res.data))
+        console.log(res.data)
+    })
+    .catch((err) => {
+        dispatch(getDataFailure(err))
+    })
+}
+
+const getDataFilterByType = (page) => (dispatch) => {
+    dispatch(getDataRequest())
+
+    const config = {
+        url:"/product_data",
+        method : "get",
+        params : {
+            _page : page,
+            _limit : 50,
+            type_like : "NEW SEASON",
+            type_like : "NEW"
+        }
+    }
+
+    return axios(config)
+    .then((res) => {
+        dispatch(getDataFilterSuccess(res.data))
+        console.log(res.data)
+    })
+    .catch((err) => {
+        dispatch(getDataFailure(err))
+    })
+}
 
 
-export {getDataRequest, getDataSuccess, getDataFailure, getData}
+export {getDataRequest, getDataSuccess, getDataFailure, getData, getDataFilterBySort, getDataFilterSuccess, getDataFilterByType}

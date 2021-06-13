@@ -7,9 +7,9 @@ function HomeOffers() {
     return (
         <div>
             <div>
-            <img className={styles.offersimage} src={Homeoffer} alt="image" />
+            <img className={styles.offersimage} src={Homeoffer} alt="" />
             </div>
-           <img className={styles.exitingDeals} src={ExitingDeal} alt="image" />
+           <img className={styles.exitingDeals} src={ExitingDeal} alt="" />
         </div>
     )
 }
