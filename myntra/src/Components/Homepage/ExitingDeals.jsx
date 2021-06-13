@@ -13,9 +13,9 @@ function ExitingDeals() {
     return (
         <div>
             <div className={styles.dealsdiv}>
-                {deals.map((item)=>(
+                {deals.map((item,j)=>(<div key={j}>
                     <img src={item} alt="" />
-                ))}
+                    </div> ))}
             </div>
             <img className={styles.spotimg} src={Spotlight} alt="" /><br/>
             <img className={styles.spotimg2} src={TopOffers} alt="" />
