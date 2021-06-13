@@ -31,23 +31,23 @@ function OffersHer() {
     return (
         <div>
         <div className={styles.dealsdiv2}>
-            {lin1.map(item=>(<div>
+            {lin1.map((item,j)=>(<div key={j}>
                 <img className={styles.dealsimg} src={item} alt="" />
             </div>))}
         </div>
         <div className={styles.dealsdiv2}>
-            {lin2.map(item=>(<div>
+            {lin2.map((item,j)=>(<div key={j}>
                 <img className={styles.dealsimg} src={item} alt="" />
             </div>))}
         </div>
-        <img className={styles. spotimg2} src={ForHim} alt="" />
+        <img className={styles.spotimg2} src={ForHim} alt="" />
         <div className={styles.dealsdiv2}>
-            {lin3.map(item=>(<div>
+            {lin3.map((item,j)=>(<div key={j}>
                 <img className={styles.dealsimg} src={item} alt="" />
             </div>))}
         </div>
         <div className={styles.dealsdiv2}>
-            {lin4.map(item=>(<div>
+            {lin4.map((item,j)=>(<div key={j}>
                 <img className={styles.dealsimg} src={item} alt="" />
             </div>))}
         </div>
