@@ -1,22 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getData } from "../../Redux/ProductListing/action";
+import { getData, getDataFilter } from "../../Redux/ProductListing/action";
 import styles from "./ProductListComp.module.css"
 import {Link} from "react-router-dom"
 
 
 function ProductListComp() {
     const dispatch = useDispatch();
-    const {data} = useSelector((state) => state.products)
+    const {data, filterData} = useSelector((state) => state.products)
+    const [page, setPage] = useState(1);
+    const pageArray = []
+
+    for (let i = 0; i <= data.length / 50; i++) {
+        pageArray.push(i + 1)
+    }
+
+    console.log(pageArray);
 
     useEffect(() => {
         dispatch(getData())
-    }, [dispatch])
+        dispatch(getDataFilter(page));
+    }, [page])
 
     return (
+        <>
         <div id={styles.main_wrapper}>
             {
-                data.map((item) => <div className={styles.item_div} key={item.id}>
+                filterData.map((item) => <div className={styles.item_div} key={item.id}>
                     <div><img src={item.images[0]}  alt=""  className={styles.item_image}/></div>
                     <div className={styles.non_hover_div}>
                         <div className={styles.item_title}>{item.title}</div>
@@ -40,7 +50,18 @@ function ProductListComp() {
                     </div>
                     </div> )
             }
+            <div style={{border:"1px solid red", padding:"50px", gridColumn:"1 / 6", display:"flex", gap:"440px"}}>
+                <div>{`< PREVIOUS`}</div>
+                <div style={{display:"flex", gap:"10px"}}>
+                {pageArray.map((item) => <div>{item}</div> )}
+                </div>
+                <div>{`NEXT >`}</div>
+            </div>
         </div>
+        {/* <div style={{border:"1px solid red", padding:"50px"}}>
+                <button>{`< PREVIOUS`}</button>
+        </div> */}
+        </>
     )
 }
 
