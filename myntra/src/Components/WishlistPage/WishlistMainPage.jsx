@@ -6,8 +6,8 @@ import styles from "./styles.module.css"
 const WishlistMainPage = () => {
     return (
         <div className={styles.navMargin} >
-            <SubNavbar/>
             <MyWishlist/>
+            <SubNavbar/>
         </div>
     );
 };
