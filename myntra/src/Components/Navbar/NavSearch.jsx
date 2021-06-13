@@ -14,7 +14,7 @@ function NavSearch() {
     return (
         <div className={styles.navserach}>
             <button>
-                <img onClick={()=>handleClick(words)} className={styles.navsearchlogo} src={searchlogo} alt="image" />
+                <img onClick={()=>handleClick(words)} className={styles.navsearchlogo} src={searchlogo} alt="img" />
                 <input onChange={(e)=>setWords(e.target.value)} value={words} placeholder="search for products, brands and more" type="text" />
             </button>
         </div>

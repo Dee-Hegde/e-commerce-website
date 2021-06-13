@@ -33,3 +33,13 @@
     margin-top: 15px;
     width: 40%;
 }
+
+/* offers her */
+.dealsdiv2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.dealsimg{
+    width: 90%;
+}
