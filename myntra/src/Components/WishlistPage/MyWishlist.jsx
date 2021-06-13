@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from "./styles.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import { deleteWishData, getWishData, postWishData } from '../../Redux/Wishlist/action';
+import SubNavbar from './SubNavbar';
 
 const MyWishlist = () => {
 
@@ -233,9 +234,12 @@ const MyWishlist = () => {
     // }]
 
     const [wishlistModel, setWishlistModel] = useState(false)
+    const [isDeleted, setIsDeleted] = useState(false)
     const [wishlistModelArray, setWishlistModelArray] = useState([])
+    const [delProduct, setDelProduct] = useState([])
 
     const wishlistData = useSelector(state=>state.wishlist.wishlistData)
+
     const dispatch = useDispatch()
 
     // const handleWishlist = (idx) => {
@@ -244,8 +248,12 @@ const MyWishlist = () => {
     // }
 
     const handleDeleteWishlist = (idx) => {
+        const deletedProduct = wishlistData.filter(item=>item.id===idx )
+        setDelProduct(deletedProduct[0])
         dispatch( deleteWishData(idx) )
+        setIsDeleted(true)
     }
+    console.log(delProduct);
 
     const handleModelWishlist = (idx) => {
         setWishlistModel(true)
@@ -265,7 +273,13 @@ const MyWishlist = () => {
 
     useEffect(()=> {
         dispatch( getWishData() )
-    }, [dispatch])
+
+        if (isDeleted===true) {
+          setTimeout(() => {
+            setIsDeleted(false)
+          }, 2000);
+        }
+    }, [dispatch, isDeleted])
     // console.log(wishlistData);
 
     return <> 
@@ -274,6 +288,15 @@ const MyWishlist = () => {
         <div>
             <br />
             <div className={styles.heading}>My Wishlist <span className={styles.countFont} > {wishlistData.length} items</span> </div>
+
+            { isDeleted && 
+              <div className={ `${styles.deleteDiv}`} >
+                <div>
+                  <img src={delProduct.images[0]} alt="" height="40px" />
+                </div>
+                <div className={styles.marginTop}>Item removed from wishlist</div>
+              </div> 
+            }
 
             {/* { filterData.map((item,i)=> 
             <button onClick={()=>handleWishlist(item.id)}>wishCheck{item.id}</button>
@@ -286,7 +309,7 @@ const MyWishlist = () => {
                             <img src={e.images[0]} alt="" width="100%"/>
                         </div>
                         <div className={styles.cancelIcon}> 
-                            <div onClick={()=>handleDeleteWishlist(e.id)} >×</div> 
+                            <div onClick={()=>handleDeleteWishlist(e.id)} > × </div> 
                         </div>
                         <div className={styles.titleFont}>{e.title}</div>
                         <div className={styles.flexPrice}>
@@ -313,6 +336,10 @@ const MyWishlist = () => {
         </div>
           )}
         </div>
+
+        
+        
+        <SubNavbar />
         
         <div>
           <div >
