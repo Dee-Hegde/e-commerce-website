@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+#main_wrapper {
+    position: inherit;
+}
+
+.filter_header{
+    font-family: 'Catamaran', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    border: 0px solid red;
+    text-align: left;
+    margin-left: 22px;
+    margin-top: 15px;
+    margin-bottom: 13px;
+}
+
+.listing_div {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    border: 0px solid red;
+    margin-left: 21px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-bottom: 2px;
+}
+
+.listing_div2 {
+    display: grid;
+    grid-template-columns: 15% 12% 73%;
+    border: 0px solid red;
+    margin-left: 21px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-bottom: 2px;
+}
+
+.listing_div3 {
+    display: grid;
+    grid-template-columns: 13% 87%;
+    border: 0px solid red;
+    margin-left: 21px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-bottom: 2px;
+}
+
+.img_div {
+    width: 23px;
+    height: 23px;
+    margin-bottom: -2px;
+}
+
+.img_div2 {
+    width: 22px;
+    height: 20px;
+    margin-bottom: -2px;
+}
+
+.img {
+    width: 100%;
+}
+
+.item_name {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 14px;
+    color: #282C3F;
+    text-align: left;
+}
+
+.item_quantity {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 14px;
+    text-align: left;
+}
+
+.category_wrapper {
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dbdbe0;
+    border-right: 1px solid #dbdbe0;
+}
+
