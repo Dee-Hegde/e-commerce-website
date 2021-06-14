@@ -22,8 +22,8 @@
     flex-direction: row;
     justify-content: space-around;
 }
-.dealsdiv >img{
-    width: 17%;
+.dealsdivimg{
+    width: 80%;
 }
 .spotimg{
     margin-top: 35px;

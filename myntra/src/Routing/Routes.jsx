@@ -25,6 +25,7 @@ function Routes() {
                 </Route>
                 <Route path="/wishlist" exact>
                     <WishlistMainPage/>
+                </Route>
                 <Route path="/result">
                     <TShirtMainPage/>
                 </Route>

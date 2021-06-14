@@ -14,7 +14,7 @@ function ExitingDeals() {
         <div>
             <div className={styles.dealsdiv}>
                 {deals.map((item,j)=>(<div key={j}>
-                    <img src={item} alt="" />
+                    <img className={styles.dealsdivimg} src={item} alt="" />
                     </div> ))}
             </div>
             <img className={styles.spotimg} src={Spotlight} alt="" /><br/>

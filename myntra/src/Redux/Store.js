@@ -3,11 +3,13 @@ import { compose } from "redux"
 import thunk from "redux-thunk"
 import { loginReducer } from "./Login/reducer"
 import { productsReducer } from "./ProductListing/reducer"
+import { wishlistReducer } from "./Wishlist/reducer"
 
 
 const rootreducer = combineReducers({
     loginred:loginReducer,
-    products:productsReducer
+    products:productsReducer,
+    wishlist:wishlistReducer
 })
 
 
