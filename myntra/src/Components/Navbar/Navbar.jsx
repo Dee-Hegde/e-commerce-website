@@ -68,11 +68,10 @@ function Navbar() {
         list:["lipstick","lip gloss","lip liner","eye liner","kajal","foundation"]}
     ]
     let history = useHistory();
-    const url="result?"
     const handleClick=(el)=>{
         el=el.toLowerCase()
-        const param= new URLSearchParams(`${url}category=${el}`)
-        history.push(`${param}`)
+        const param= new URLSearchParams(`category=${el}`)
+        history.push(`/result/${param}`)
     }
     
 
