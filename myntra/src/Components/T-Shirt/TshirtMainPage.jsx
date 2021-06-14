@@ -10,30 +10,36 @@ import styles from "./TshirtMainPage.module.css"
 function TShirtMainPage() {
     const [sort, setSort] = useState("");
     const [order, setOrder] = useState("");
-    const [type, setType] = useState(false)
+    const [type, setType] = useState(false);
+    const [sortby, setSortby] = useState("")
 
-    const handleHighToLow = () => {
+    const handleHighToLow = (item) => {
         setSort("dis_price")
         setOrder("DESC")
+        setSortby(item)
     }
 
-    const handleLowToHigh = () => {
+    const handleLowToHigh = (item) => {
         setSort("dis_price")
         setOrder("asc")
+        setSortby(item)
     }
 
-    const handleBetterDiscount = () => {
+    const handleBetterDiscount = (item) => {
         setSort("discount")
         setOrder("DESC")
+        setSortby(item)
     }
 
-    const handlePopularity = () => {
+    const handlePopularity = (item) => {
         setSort("review")
         setOrder("DESC")
+        setSortby(item)
     }
 
-    const handleWhatnew = () => {
+    const handleWhatnew = (item) => {
         setType(true);
+        setSortby(item)
     }
 
     return (
@@ -48,7 +54,7 @@ function TShirtMainPage() {
             </div>
             <div id={styles.wrapper}>
                 <Filter />
-                <ProductList handleHighToLow={handleHighToLow} handleLowToHigh={handleLowToHigh} handleBetterDiscount={handleBetterDiscount} handlePopularity={handlePopularity} handleWhatnew={handleWhatnew}/>
+                <ProductList handleHighToLow={handleHighToLow} handleLowToHigh={handleLowToHigh} handleBetterDiscount={handleBetterDiscount} handlePopularity={handlePopularity} handleWhatnew={handleWhatnew} sortby={sortby}/>
             </div>
             
         </div>

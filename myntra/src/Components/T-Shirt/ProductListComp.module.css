@@ -3,7 +3,7 @@
 
 
 #main_wrapper {
-    border: 1px solid red;
+    border: 0px solid red;
     padding: 30px 32px 50px 32px;
     display: grid;
     grid-template-columns: 18% 18% 18% 18% 18%;
@@ -206,6 +206,7 @@
     padding: 0px 25px 0px 25px;
     border-radius: 0.3em;
     cursor: pointer;
+    height: 43px;
 }
 
 .sub_pagi_wrapper > div:nth-child(1):hover, .sub_pagi_wrapper > div:nth-child(3):hover {

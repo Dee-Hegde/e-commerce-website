@@ -87,3 +87,20 @@
 .product_header > div > div > select:hover { 
     background-color: #F4F4F5;
 }
+
+
+.sortby_arrow {
+    position: absolute;
+    margin-left: 55px;
+    margin-top: -2px;
+    width: 30px;
+    height: 25px;
+}
+
+.sortby_arrow2 {
+    position: absolute;
+    margin-left: 35px;
+    margin-top: -2px;
+    width: 30px;
+    height: 25px;
+}

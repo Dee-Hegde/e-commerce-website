@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ProductList.module.css"
 
 
-function ProductListHeader({handleHighToLow, handleLowToHigh, handleBetterDiscount, handlePopularity, handleWhatnew}) {
+function ProductListHeader({handleHighToLow, handleLowToHigh, handleBetterDiscount, handlePopularity, handleWhatnew, sortby}) {
 
     const filterOptions = [
         {onclick : handleWhatnew, option_name : "What's New"},
@@ -25,10 +25,10 @@ function ProductListHeader({handleHighToLow, handleLowToHigh, handleBetterDiscou
                     <div>
                         <div>
                             <div>
-                                <div>Sort by : <span style={{fontWeight:"700"}}>Recommended</span> <img src="https://i.imgur.com/San9svR.png" alt="arrow_image"  style={{position:"absolute", marginLeft:"50px", marginTop:"-2px", width:"30px", height:"25px"}}/></div>
-                                <div id={styles.sort_hover_div}>    
+                                <div>Sort by : <span style={{fontWeight:"700"}}>{sortby === "" ? "Recommended" : sortby} </span> <span className={sortby === "Price: High to Low" || "Price: Low to High" ?  styles.sortby_arrow2 : styles.sortby_arrow }><img src="https://i.imgur.com/San9svR.png" alt="arrow_image" style={{width:"100%"}}/></span></div>
+                                <div id={styles.sort_hover_div}>
                                     {
-                                        filterOptions.map(item => <div key={item.option_name} onClick={item.onclick}>{item.option_name}</div> )
+                                        filterOptions.map(item => <div key={item.option_name} onClick={() => item.onclick(item.option_name)}>{item.option_name}</div> )
                                     }
                                 </div>
                             </div>

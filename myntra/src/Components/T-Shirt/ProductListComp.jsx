@@ -12,9 +12,10 @@ function ProductListComp({sort, order, type}) {
     
     const pageArray = []
 
+    const pageslength = type === true && sort === "" ? filterData : data
     
 
-    for (let i = 0; i <= data.length / 50; i++) {
+    for (let i = 0; i <= pageslength.length / 50; i++) {
         pageArray.push(i + 1)
     }
 
@@ -27,7 +28,7 @@ function ProductListComp({sort, order, type}) {
         dispatch(getDataFilterBySort(page, sort, order));
         
         
-        if(type === true) {
+        if(type === true && sort === "") {
             dispatch(getDataFilterByType(page));
         }
 
