@@ -5,11 +5,13 @@ import Login from '../Components/Login/Login';
 import MensMainPage from '../Components/MenPage/MensMainPage';
 import Navbar from '../Components/Navbar/Navbar';
 import WishlistMainPage from '../Components/WishlistPage/WishlistMainPage';
+import { TShirtMainPage } from '../Components/T-Shirt/TshirtMainPage';
+
 
 function Routes() {
     return (
         <div>
-            <Navbar/>
+           <Navbar/>
             <Switch>
                 <Route path="/" exact>
                     <Home/>
@@ -17,14 +19,18 @@ function Routes() {
                 <Route path="/men" exact>
                     <MensMainPage/>
                 </Route>
+
                 <Route path="/login" exact>
                     <Login/>
                 </Route>
                 <Route path="/wishlist" exact>
                     <WishlistMainPage/>
+                <Route path="/result">
+                    <TShirtMainPage/>
                 </Route>
               
             </Switch>
+            
         </div>
     )
 }
