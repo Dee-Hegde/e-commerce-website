@@ -260,3 +260,24 @@
     font-size: 25px;
     margin-top: -2px;
 }
+
+.rating_wrapper {
+    display: flex;
+    position: absolute;
+    background-color: white;
+    border: 0px solid red;
+    padding: 1px 5px 1px 5px;
+    margin-top: -35px;
+    margin-left: 7px;
+    opacity: 80%;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 13px;
+    color: #282C3F;
+    font-weight: 800;
+    border-radius: 0.3em;
+}
+
+.rating_image {
+    width: 20px;
+    height: 20px;
+}
