@@ -11,3 +11,9 @@ const WishlistMainPage = () => {
 };
 
 export default WishlistMainPage;
+
+// const handleDoneWithoutSize = () => {
+//     setWishlistModel(false)
+//     setIsSizeNotSelected(true)
+//   }
+//   console.log(isSizeNotSelected);

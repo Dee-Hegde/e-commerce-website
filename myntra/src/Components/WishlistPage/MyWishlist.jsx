@@ -1,12 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import styles from "./styles.module.css"
-import { useDispatch, useSelector } from "react-redux";
-import { deleteWishData, getWishData, postWishData } from '../../Redux/Wishlist/action';
-import SubNavbar from './SubNavbar';
-
-const MyWishlist = () => {
-
-    // let filterData = [ {
+// let filterData = [ {
     //     "id": "04",
     //     "title": "Mast & Harbour",
     //     "sub_heading": "Men White & Navy Striped Round Neck T-shirt",
@@ -233,12 +225,28 @@ const MyWishlist = () => {
     //     "rating": ""
     // }]
 
+
+import React, { useEffect, useState } from 'react';
+import styles from "./styles.module.css"
+import { useDispatch, useSelector } from "react-redux";
+import { deleteWishData, getWishData, postWishData } from '../../Redux/Wishlist/action';
+import SubNavbar from './SubNavbar';
+import errorIcon from "./images/errorIcon.jpg";
+import { postBagData } from '../../Redux/Bag/action';
+import { Link } from "react-router-dom";
+
+const MyWishlist = () => {
+
     const [wishlistModel, setWishlistModel] = useState(false)
     const [isDeleted, setIsDeleted] = useState(false)
     const [wishlistModelArray, setWishlistModelArray] = useState([])
     const [delProduct, setDelProduct] = useState([])
+    const [isSizeSelected, setIsSizeSelected] = useState(false)
+    const [isSizeNotSelected, setIsSizeNotSelected] = useState(false)
+    const [isMovedToBag, setIsMovedToBag] = useState(false)
 
     const wishlistData = useSelector(state=>state.wishlist.wishlistData)
+    // const bagData = useSelector(state=>state.bag.bagData)
 
     const dispatch = useDispatch()
 
@@ -253,34 +261,78 @@ const MyWishlist = () => {
         dispatch( deleteWishData(idx) )
         setIsDeleted(true)
     }
-    console.log(delProduct);
+    // console.log(delProduct);
 
     const handleModelWishlist = (idx) => {
         setWishlistModel(true)
-        const updatedWishlistModel = wishlistData.filter(item=>item.id===idx )
+        const updatedWishlistModel = wishlistData.filter( item=>item.id===idx )
         setWishlistModelArray(updatedWishlistModel)
     }
 
     const handleModelWishClose = () => {
         setWishlistModel(false)
+        setIsSizeSelected(false)
     }
 
     const handleModelWishRetain = () => {
       setWishlistModel(true)
     }
-    // console.log(wishlistModel);
-    // console.log(wishlistModelArray);
+
+    const handleDoneWithoutSize = () => {
+      setIsSizeNotSelected(true) 
+    }
+
+    const handleSizeSelect = (sizex) => {
+      setIsSizeSelected(true)
+    }
+
+    // const handleDoneWithSize = () => {
+    //   setIsSizeSelected(true)
+    // }
+    
+    const handleMoveToBag = (idx) => {
+      const deletedProduct = wishlistData.filter(item=>item.id===idx )
+      setDelProduct(deletedProduct[0])
+      dispatch( deleteWishData(idx) )
+      setIsMovedToBag(true)
+      setIsSizeSelected(false)
+
+      const updatedBag = wishlistData.filter(el=> el.id===idx )
+      dispatch( postBagData(updatedBag[0]) )
+    }
+
+    // const handleNothing = () => {}
 
     useEffect(()=> {
         dispatch( getWishData() )
+        setWishlistModel(false)
 
-        if (isDeleted===true) {
+        if (isDeleted) {
           setTimeout(() => {
             setIsDeleted(false)
-          }, 2000);
+          }, 1500);
         }
-    }, [dispatch, isDeleted])
+
+        if (isSizeNotSelected) {
+          setTimeout(() => {
+            setIsSizeNotSelected(false)
+          }, 1500);
+        }
+
+        if (isMovedToBag) {
+          setTimeout(() => {
+            setIsMovedToBag(false)
+          }, 1500);
+        }
+    }, [dispatch, isDeleted, isSizeNotSelected, isMovedToBag])
+
     // console.log(wishlistData);
+    // console.log(bagData);
+    // console.log(isSizeNotSelected);
+    // console.log(isSizeSelected);
+    // console.log(wishlistModel);
+    // console.log(wishlistModelArray);
+
 
     return <> 
 
@@ -288,15 +340,6 @@ const MyWishlist = () => {
         <div>
             <br />
             <div className={styles.heading}>My Wishlist <span className={styles.countFont} > {wishlistData.length} items</span> </div>
-
-            { isDeleted && 
-              <div className={ `${styles.deleteDiv}`} >
-                <div>
-                  <img src={delProduct.images[0]} alt="" height="40px" />
-                </div>
-                <div className={styles.marginTop}>Item removed from wishlist</div>
-              </div> 
-            }
 
             {/* { filterData.map((item,i)=> 
             <button onClick={()=>handleWishlist(item.id)}>wishCheck{item.id}</button>
@@ -337,10 +380,37 @@ const MyWishlist = () => {
           )}
         </div>
 
-        
-        
         <SubNavbar />
-        
+
+        { isDeleted && 
+          <div className={ `${styles.deleteDiv}`} >
+            <div>
+              <img src={delProduct.images[0]} alt="" height="40px" />
+            </div>
+            <div className={styles.marginTop}>Item removed from wishlist</div>
+          </div> 
+        }
+
+        { isSizeNotSelected && 
+          <div className={ `${styles.withoutSizeDiv}`} >
+            <div className= {`${styles.borderRadius} ${styles.marginTop}`}>
+              <img src={errorIcon} alt="" height="26px" />
+            </div>
+            <div className= {`${styles.marginTop} ${styles.align}`}>Size not selected</div>
+          </div> 
+        }
+
+        { isMovedToBag && 
+          <div className={ `${styles.movedToBagDiv}`} >
+            <div>
+              <img src={delProduct.images[0]} alt="" height="40px" />
+            </div>
+            <div className={styles.marginTop}>Item successfully added to bag</div>
+
+            <div> <Link to="/bag"><button className={styles.viewBagBtn}>VIEW BAG</button></Link> </div>
+          </div> 
+        }
+                
         <div>
           <div >
             { wishlistModel && wishlistModelArray.map((e,i)=> 
@@ -363,21 +433,22 @@ const MyWishlist = () => {
                       </div>
                     </div>
                     <hr />
-                    <div  className={`${styles.titleFont} ${styles.font16} ${styles.align}`}>Select Size</div>
+                    <div className={`${styles.titleFont} ${styles.font16} ${styles.align}`}>Select Size</div>
                     <div className={styles.gridBtn}>
                       { e.sizes.map((size,i)=> <div key={i}>
-                        {/* <div className={`${styles.titleFont} ${styles.font16} ${styles.gray} ${styles.sizeDiv}`}>{size}</div> */}
-                        <div className={`${styles.sizeDiv}`}><div>{size}</div></div>
+                        <div onClick={()=>handleSizeSelect(size)} className={`${styles.sizeDiv}`}><div>{size}</div></div>
                       </div> ) }
                     </div>
                     <br />
-                    <button className={`${styles.doneBtn} ${styles.font16}`}>Done</button>
+                    { isSizeSelected && <div className={styles.seller}>Seller: <span> Omnitech Retail</span> </div> }
+
+                    <button onClick={ isSizeSelected ? ()=>handleMoveToBag(e.id) : handleDoneWithoutSize } className={`${styles.doneBtn} ${styles.font16}`}>Done</button>
                   </div>
                   
                 </div>
 
                 <div className={styles.closeModel}> 
-                    <div onClick={handleModelWishClose} >×</div> 
+                    <div onClick={handleModelWishClose} > × </div> 
                 </div>
             </div>
             ) }
