@@ -34,24 +34,27 @@ function Login() {
     const handleChange=()=>{}
 
     return !userAuth?(
-            <div className={styles.Loginmaindiv}>
-                <div className={styles.logindiv}>
-                    <div className={styles.loginsubdiv}>
-                        <img className={styles.couponcode} src={Coupon} alt="" />
+        <div className={styles.logincontainer}>
+            <div className={styles.logindiv}>
+                    <div className={styles.loginpromo}> 
+                    <img className={styles.couponcode} src={Coupon} alt="" />  
                     </div>
-                
-                    <div className={styles.spandiv}>
-                        <span className={styles.heading}>Login</span><span className={styles.heading2}>or</span><span className={styles.heading1}>Signup</span>
+                    <div className={styles.inputcontainer}>
+                        <div>
+                            <span className={styles.heading}>Login</span><span className={styles.heading2}>or</span><span className={styles.heading1}>Signup</span><br/>
+                            <div className={styles.inputdiv}>
+                            <input className={styles.input1} type="text" value={`+91`} onChange={()=>handleChange()} />
+                            <input onChange={(e)=>setMobile(e.target.value)} value={mobile} className={styles.input2} type="text" placeholder="Mobile Number" />
+                            <p className={styles.terms}>By continuing, I agree to the <span className={styles.conditions}>Terms of Use</span> & <span className={styles.conditions}>Privacy Policy</span></p> 
+                            <button className={styles.loginbutton} onClick={()=>{handleLogin();history.go(-1)}}>CONTINUE</button>
+                            <p>Have trouble in logging in? <span className={styles.conditions}>Get help</span></p>
+                        </div>
+                        </div>
+
                     </div>
-                    <div className={styles.inputdiv}>
-                        <input className={styles.input1} type="text" value={`+91`} onChange={()=>handleChange()} />
-                        <input onChange={(e)=>setMobile(e.target.value)} value={mobile} className={styles.input2} type="text" placeholder="Mobile Number" />
-                    </div>
-                    <p className={styles.terms}>By continuing, I agree to the <span className={styles.conditions}>Terms of Use</span> & <span className={styles.conditions}>Privacy Policy</span></p> 
-                    <button className={styles.loginbutton} onClick={()=>{handleLogin();history.go(-1)}}>Continue</button>
-                    <p>Have trouble in logging in? <span className={styles.conditions}>Get help</span></p>
-                </div>
             </div>
+        </div>
+          
     ):(<Redirect to="/login/userdetails"/>)
 }
 
