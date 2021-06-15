@@ -6,7 +6,7 @@ import MensMainPage from '../Components/MenPage/MensMainPage';
 import Navbar from '../Components/Navbar/Navbar';
 import WishlistMainPage from '../Components/WishlistPage/WishlistMainPage';
 import { TShirtMainPage } from '../Components/T-Shirt/TshirtMainPage';
-
+import UserDetails from "../Components/Login/UserDetails"
 
 function Routes() {
     return (
@@ -23,13 +23,19 @@ function Routes() {
                 <Route path="/login" exact>
                     <Login/>
                 </Route>
+                <Route path="/login/userdetails">
+                    <UserDetails/>
+                </Route>
                 <Route path="/wishlist" exact>
                     <WishlistMainPage/>
                 </Route>
                 <Route path="/result">
                     <TShirtMainPage/>
                 </Route>
-              
+                <Route path="/login/userdetails">
+                    <UserDetails/>
+                </Route>
+             
             </Switch>
             
         </div>

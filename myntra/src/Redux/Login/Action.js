@@ -1,19 +1,40 @@
-import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from "./ActionType"
+import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_REQUEST } from "./ActionType"
 
 
-const loginRequest=()=>{
+export const loginRequest=()=>{
     return{
         type:LOGIN_REQUEST
     }
 }
-const loginSuccess=(payload)=>{
+export const loginSuccess=(payload)=>{
     return{
         type:LOGIN_SUCCESS,
         payload,
     }
 }
-const loginFail=()=>{
+export const loginFail=()=>{
     return{
         type:LOGIN_FAIL
+    }
+}
+export const loginProcess=(userdetails,mobile)=>(dispatch)=>{
+    console.log("login")
+    dispatch(loginRequest())
+    let payload= userdetails.filter(item=>item.mobilenumber==mobile)
+    payload=payload[0]
+    if(payload == undefined){
+        alert("User not found")
+        dispatch(loginFail())
+    }
+    else{
+        let usrname=payload.username.toUpperCase()
+        alert(`WELCOME BACK ${usrname} `)
+        dispatch(loginSuccess(payload))
+    }
+
+}
+export const logoutReq=()=>{
+    return{
+        type:LOGOUT_REQUEST
     }
 }
