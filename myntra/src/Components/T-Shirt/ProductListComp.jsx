@@ -41,6 +41,7 @@ function ProductListComp({sort, order, type}) {
                 filterData.map((item) => <Link to={`/products/${item.id}`} key={item.id} className={styles.link}><div className={styles.item_div} >
                     <div><img src={item.images[0]}  alt=""  className={styles.item_image}/> 
                     {(item.type === "NEW" || item.type === "NEW SEASON" || item.type === "TRENDING") && <div className={styles.tag_wrapper}><img src={tagImage} alt="" /> <div>{item.type}</div></div>}
+                    {item.rating !== "" && <div className={styles.rating_wrapper}><div>{item.rating}</div><div className={styles.rating_image}><img src="https://i.imgur.com/qXeipEM.png" alt=""  style={{width:"100%"}}/></div><div>{`| ${item.review} `}</div></div> }
                     </div>
                     <div className={styles.non_hover_div}>
                         <div className={styles.item_title}>{item.title}</div>
