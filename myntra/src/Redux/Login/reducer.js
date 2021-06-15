@@ -1,34 +1,48 @@
-import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from "./ActionType"
+import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_REQUEST } from "./ActionType"
 
 
 const loginstate={
-    isLoading:false,
-    isError:false,
-    isAuth:false,
-    isReg:false,
+    timeLoading:false,
+    timeError:false,
+    userAuth:false,
+    userReg:false,
     username:"",
     cardnumber:"",
-    phoneNumber:""
+    phoneNumber:"",
+    email:"",
+    bag:[]
 }
 
 export const loginReducer=(state=loginstate,{type,payload})=>{
+    console.log(state)
     switch(type){
         case LOGIN_REQUEST:
             return{
                 ...state, 
-                isLoading:true
+                timeLoading:true
             }
         case LOGIN_SUCCESS:
             return{
                 ...state,
-                isLoading:false,
-                isAuth:true,
+                timeLoading:false,
+                userAuth:true,
+                bag:payload.cart,
+                username:payload.username,
+                email:payload.email,
+                cardnumber:payload.cardnumber,
+                phoneNumber:payload.mobilenumber
+
             }
         case LOGIN_FAIL:
             return{
                 ...state,
-                isError:true,
-                isLoading:false
+                timeError:true,
+                timeLoading:false
+            }
+        case LOGOUT_REQUEST:
+            return{
+                ...state,
+                userAuth:false
             }
         default:
             return state
