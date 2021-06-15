@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300&display=swap');
+
+* {
+    font-family: 'Catamaran', sans-serif;
+}
+
+.bagNav {
+    padding: 20px 0px;
+    padding-left: 70px;
+    padding-right: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bagNav div:nth-child(2) {
+    margin-top: 3px;
+}
+
+.subNav {
+    background-color: #03A685;
+    padding: 3px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.horPartition {
+    display: grid;
+    grid-template-columns: 58% 42%;
+}
+
+.borderRight {
+    border-right: 1px solid rgb(214, 211, 211);
+    /* text-align: right; */
+    padding-right: 15px;
+    padding-top: 30px;
+    padding-left: 285px;
+}
+
+.pinBox {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(214, 211, 211);
+    padding: 15px;
+    width: 550px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.pinBox div:nth-child(1) {
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.pinBox div:nth-child(2) {
+    font-weight: bold;
+    font-size: 13px;
+    color: #FF3F6C;
+    background-color: white;
+    border: 1px solid red;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.offer {
+    border: 1px solid rgb(214, 211, 211);
+    padding: 15px;
+    width: 550px;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 5% auto;
+    margin-bottom: 10px;
+}
+
+.marginBottom {
+    margin-top: -3px;
+    font-weight: 600;
+}
+
+.modelBtn {
+    color: #FF3F6C;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.offerList li {
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: gray;
+}
