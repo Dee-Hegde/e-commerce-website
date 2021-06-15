@@ -12,6 +12,14 @@ function TShirtMainPage() {
     const [order, setOrder] = useState("");
     const [type, setType] = useState(false);
     const [sortby, setSortby] = useState("")
+    const [filters, setFilters] = useState([]);
+
+
+    console.log(filters);
+
+    const handleFilters = (item) => {
+        setFilters([...filters, item]);
+    }
 
     const handleHighToLow = (item) => {
         setSort("dis_price")
@@ -49,7 +57,7 @@ function TShirtMainPage() {
             </div>
                 <Header />
             <div id={styles.wrapper2}>
-                <FilterComp />
+                <FilterComp  handleFilters={handleFilters}/>
                 <ProductListComp sort={sort} order={order} type={type}/>
             </div>
             <div id={styles.wrapper}>
