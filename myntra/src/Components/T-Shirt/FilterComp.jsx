@@ -1,10 +1,11 @@
 import React from "react"
+import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./FilterComp.module.css"
 
 
-function FilterComp() {
+function FilterComp({handleFilters}) {
     const {data} = useSelector((state) => state.products)
 
     const tshirt = data.filter(item => item.category === "T-shirt");
@@ -215,7 +216,19 @@ function FilterComp() {
         setDiscount(updatedDiscount);
     }
 
+    const handleAddFilters = () => {
+        category.map((item) => item.ischecked === true ? handleFilters(item.category_name) : "");
+        brand.map((item) => item.ischecked === true ? handleFilters(item.brand_name) : "");
+        price.map((item) => item.ischecked === true ? handleFilters(item.range_name) : "");
+        color.map((item) => item.ischecked === true ? handleFilters(item.color_name) : "");
+        discount.map((item) => item.ischecked === true ? handleFilters(item.range_name) : "");
+    }
 
+
+    useEffect(() => {
+        handleAddFilters();
+    }, [category, brand, price, color, discount]);
+  
 
 
     return (
