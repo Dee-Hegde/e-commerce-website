@@ -1,8 +1,8 @@
-import React from "react"
+import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import styles from "./FilterComp.module.css"
+import styles from "./FilterComp.module.css";
 
 
 function FilterComp({handleFilters}) {

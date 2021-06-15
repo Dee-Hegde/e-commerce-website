@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getData, getDataFilterBySort, getDataFilterByType } from "../../Redux/ProductListing/action";
 import styles from "./ProductListComp.module.css"
 import tagImage from "./Images/Capturenew24bg.png"
-
+import {Link} from "react-router-dom"
 
 function ProductListComp({sort, order, type}) {
     const dispatch = useDispatch();
@@ -32,13 +32,13 @@ function ProductListComp({sort, order, type}) {
             dispatch(getDataFilterByType(page));
         }
 
-    }, [page, dispatch, sort, order, type])
+    }, [page, dispatch, sort, order, type]);
 
     return (
         <>
         <div id={styles.main_wrapper}>
             {
-                filterData.map((item) => <div className={styles.item_div} key={item.id}>
+                filterData.map((item) => <Link to={`/products/${item.id}`} key={item.id} className={styles.link}><div className={styles.item_div} >
                     <div><img src={item.images[0]}  alt=""  className={styles.item_image}/> 
                     {(item.type === "NEW" || item.type === "NEW SEASON" || item.type === "TRENDING") && <div className={styles.tag_wrapper}><img src={tagImage} alt="" /> <div>{item.type}</div></div>}
                     </div>
@@ -62,7 +62,7 @@ function ProductListComp({sort, order, type}) {
                             <div>{`(${item.discount}% OFF)`}</div>
                         </div>}
                     </div>
-                    </div> )
+                    </div> </Link> )
             }
             <div className={styles.pagination_wrapper}>
                 <div>{`Page ${page} of ${pageArray.length}`}</div>
