@@ -1,4 +1,4 @@
-import { GET_DATA_FAILURE, GET_DATA_FILTER, GET_DATA_REQUEST, GET_DATA_SUCCESS } from "./actionType"
+import { GET_DATA_FAILURE, GET_DATA_FILTER, GET_DATA_REQUEST, GET_DATA_SUCCESS, UPDATE_FILTER_DATA } from "./actionType"
 import Axios from "axios"
 
 
@@ -16,6 +16,13 @@ const getDataRequest = () => {
 const getDataSuccess = (payload) => {
     return {
         type : GET_DATA_SUCCESS,
+        payload
+    }
+}
+
+const updateData = (payload) => {
+    return {
+        type : UPDATE_FILTER_DATA,
         payload
     }
 }
@@ -101,4 +108,4 @@ const getDataFilterByType = (page) => (dispatch) => {
 }
 
 
-export {getDataRequest, getDataSuccess, getDataFailure, getData, getDataFilterBySort, getDataFilterSuccess, getDataFilterByType}
+export {getDataRequest, getDataSuccess, getDataFailure, getData, getDataFilterBySort, getDataFilterSuccess, getDataFilterByType, updateData}

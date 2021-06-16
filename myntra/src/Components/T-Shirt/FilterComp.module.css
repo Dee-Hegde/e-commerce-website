@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 #main_wrapper {
-    position: inherit;
+    height: 1780px;
+    border: 0px solid red;
+}
+
+#mian_wrapper1 {
+    height: 1600px;
+    border: 1px solid red;
 }
 
 .filter_header{

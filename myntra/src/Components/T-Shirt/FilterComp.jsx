@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import { useRef } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./FilterComp.module.css";
@@ -7,6 +8,7 @@ import styles from "./FilterComp.module.css";
 
 function FilterComp({handleFilters}) {
     const {data} = useSelector((state) => state.products)
+    const scrollRef = useRef(null);
 
     const tshirt = data.filter(item => item.category === "T-shirt");
     const loung_tshirt = data.filter(item => item.category === "Lounge Tshirt");
@@ -225,14 +227,22 @@ function FilterComp({handleFilters}) {
     }
 
 
+    
+        
+
     useEffect(() => {
         handleAddFilters();
+        // if (window.scrollY > 1200) {
+        //     alert((window.scrollY));
+        //     // scrollRef.current.scrollTo({top : 500, behavior: 'smooth'});
+        
+        // }
     }, [category, brand, price, color, discount]);
   
 
 
     return (
-        <div id={styles.main_wrapper}>
+        <div id={styles.main_wrapper} ref={scrollRef} style={window.scrollY > 400 && window.scrollY < 800 ? {marginTop : "200px"} : window.scrollY >= 800 && window.scrollY < 1200 ? {marginTop : "400px"} : window.scrollY >= 1200 && window.scrollY < 1600 ? {marginTop : "600px"} : window.scrollY >= 1600 && window.scrollY < 2000 ? {marginTop : "800px"} : window.scrollY >= 2000 && window.scrollY < 2400 ? {marginTop : "1400px"} : window.scrollY >= 2400 && window.scrollY < 2800 ? {marginTop : "1800px"} : window.scrollY >= 2800 && window.scrollY < 3200 ? {marginTop : "2200px"} : window.scrollY >= 3200 && window.scrollY < 3600 ? {marginTop : "2400px"} : window.scrollY >= 3600 ? {marginTop : "2500px"} : {marginTop : "0px"}}>
             <div className={styles.category_wrapper}>
                 <div className={styles.filter_header}>CATEGORIES</div>
                 {
