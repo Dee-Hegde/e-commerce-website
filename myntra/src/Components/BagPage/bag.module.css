@@ -26,7 +26,8 @@
 
 .horPartition {
     display: grid;
-    grid-template-columns: 58% 42%;
+    grid-template-columns: 19% auto 42%;
+    padding-bottom: 100px;
 }
 
 .borderRight {
@@ -34,7 +35,7 @@
     /* text-align: right; */
     padding-right: 15px;
     padding-top: 30px;
-    padding-left: 32%;
+    /* padding-left: 32%; */
 }
 
 .pinBox {
@@ -99,10 +100,10 @@
 .shopDetail {
     display: flex;
     justify-content: space-between;
-    padding: 15px 10px;
+    padding: 12px 10px;
     width: 95%;
     border-radius: 5px;
-    margin-bottom: 8px;
+    margin-top: 5px;
     font-size: 16px;
     font-weight: 700;
 }
@@ -175,6 +176,7 @@
     grid-template-columns: 6% auto 10%;
     text-align: left;
     font-size: 15px;
+    color: black;
 }
 
 .addMoreBox div:nth-child(2) {
@@ -190,15 +192,16 @@
     text-align: left;
     padding-left: 15px;
     padding-top: 16px;
+    width: 50%;
     /* padding-left: 32%; */
 }
 
 .coupon {
     border-bottom: 1px solid rgb(214, 211, 211);
-    width: 46%;
+    /* width: 46%; */
     padding: 13px 0px;
     display: grid;
-    grid-template-columns: 12% auto 27.5%;
+    grid-template-columns: 12% auto 25%;
     text-align: left;
     font-size: 14px;
     font-weight: bold;
@@ -221,8 +224,98 @@
     padding: 3px 18px;
 }
 
+.priceFlex {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.placeOrderBtn {
+    padding: 10px;
+    color: white;
+    background-color: #FF3F6C;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.gridImage {
+    display: grid;
+    grid-template-columns: 75% auto;
+    border-top: 1px solid rgb(214, 211, 211);
+}
+
+.gridImage > div {
+    text-align: left;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.gridModelBtn {
+    display: grid;
+    grid-template-columns: 60% auto;
+    padding-top: 10px;
+    color: rgb(65, 63, 63);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.bagModelCard {
+    width: 430px;
+    /* border: 1px solid red; */
+    background-color: white;
+    position: fixed;
+    top: 0;
+    margin-left: 240px;
+    margin-top: 190px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.flexBagModel {
+    display: grid;
+    grid-template-columns: 14% auto;
+}
+
+.bagModelBg {
+    width: 150%;
+    height: 100vh;
+    background-color: rgb(177, 170, 170);
+    opacity: 50%;
+    position: fixed;
+    top: 0;
+    margin-left: -20%;
+}
+
+.closeBagModel {
+    width: 23px;
+    height: 23px;
+    border: 1px solid grey;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    position: fixed;
+    top: 0;
+    margin-left: 660px;
+    margin-top: 205px;
+    border-radius: 50%;
+    /* color: grey; */
+}
+
+.closeBagModel div {
+    background: none;
+    margin-top: -7px;
+}
+
+.lineHeight {
+    line-height: 2;
+}
+
+.teal {
+    color: teal;
+}
+
 .borderBottom {
-    width: 46%;
+    /* width: 46%; */
     border-bottom: 1px solid rgb(214, 211, 211);
 }
 
@@ -230,9 +323,21 @@
     margin-top: 10px;
 }
 
+.marginTop20 {
+    margin-top: 20px;
+}
+
 .fontBold {
     /* font-size: 15px; */
     font-weight: bold;
+}
+
+.font15 {
+    font-size: 15px;
+}
+
+.blue {
+    color: #526CD0;
 }
 
 .font14 {
@@ -245,6 +350,10 @@
 
 .red {
     color: red;
+}
+
+.pink {
+    color: #FF3F6C;
 }
 
 .lineThrough {
