@@ -4,7 +4,7 @@ import styles from "./bag.module.css";
 const Gift = () => {
     return (
         <div className={`${styles.marginTop} ${styles.borderBottom}`}>
-            <div className={`${styles.fontBold} ${styles.font14} ${styles.marginTop}`}>GIFTING AND PERSONILISATION</div>
+            <div className={`${styles.fontBold} ${styles.font14} ${styles.marginTop20}`}>GIFTING AND PERSONILISATION</div>
             <div className={` ${styles.marginTop}`}>
                 <img src={giftImage} alt="" width="100%" />
             </div>

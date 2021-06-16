@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const BagNavbar = () => {
     return (
         <div className={styles.bagNav}>
-            <Link to="/home">
+            <Link to="/">
                 <div>
                     <img src={logo} alt="" width="44px"/>
                 </div>
