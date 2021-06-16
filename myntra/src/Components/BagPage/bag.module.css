@@ -186,6 +186,50 @@
     margin-top: -2px;
 }
 
+.billing {
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 16px;
+    /* padding-left: 32%; */
+}
+
+.coupon {
+    border-bottom: 1px solid rgb(214, 211, 211);
+    width: 46%;
+    padding: 13px 0px;
+    display: grid;
+    grid-template-columns: 12% auto 27.5%;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.coupon div:nth-child(1) {
+    margin-top: 5px;
+}
+
+.coupon div:nth-child(2) {
+    margin-top: 4px;
+}
+
+.coupon div:nth-child(3) {
+    width: 40px;
+    border: 1px solid #FF3F6C;
+    color: #FF3F6C;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 3px 18px;
+}
+
+.borderBottom {
+    width: 46%;
+    border-bottom: 1px solid rgb(214, 211, 211);
+}
+
+.marginTop {
+    margin-top: 10px;
+}
+
 .fontBold {
     /* font-size: 15px; */
     font-weight: bold;

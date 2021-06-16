@@ -4,6 +4,8 @@ import PinCode from "./PinCode";
 import Offers from "./Offers";
 import BagProducts from "./BagProducts";
 import AddMoreFromWish from "./AddMoreFromWish";
+import ApplyCoupons from "./ApplyCoupons";
+import Gift from "./Gift";
 
 const ShoppingBag = () => {
     return (
@@ -15,7 +17,10 @@ const ShoppingBag = () => {
                 <AddMoreFromWish />
             </div>
             
-            <div>fdf</div>
+            <div className={styles.billing}>
+                <ApplyCoupons />
+                <Gift />
+            </div>
         </div>
     );
 };
