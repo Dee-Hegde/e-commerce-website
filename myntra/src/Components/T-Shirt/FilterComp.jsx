@@ -1,11 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
+// import { useRef } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./FilterComp.module.css";
 
 
-function FilterComp({handleFilters}) {
+function FilterComp({handleCategoryFilters, handleBrandFilter, handlePriceFilter, handleColorFilter, handleDiscountFilter, handleRemoveCategory}) {
     const {data} = useSelector((state) => state.products)
 
     const tshirt = data.filter(item => item.category === "T-shirt");
@@ -187,14 +188,14 @@ function FilterComp({handleFilters}) {
 
 
     const discount_range = [
-        {id : 50, range_name : "10% and above", ischecked : false},
-        {id : 51, range_name : "20% and above", ischecked : false},
-        {id : 52, range_name : "30% and above", ischecked : false},
-        {id : 53, range_name : "40% and above", ischecked : false},
-        {id : 54, range_name : "50% and above", ischecked : false},
-        {id : 55, range_name : "60% and above", ischecked : false},
-        {id : 56, range_name : "70% and above", ischecked : false},
-        {id : 57, range_name : "80% and above", ischecked : false}
+        {id : 50, range_name : "10% and above", ischecked : false, discount_range : 10},
+        {id : 51, range_name : "20% and above", ischecked : false, discount_range : 20},
+        {id : 52, range_name : "30% and above", ischecked : false, discount_range : 30},
+        {id : 53, range_name : "40% and above", ischecked : false, discount_range : 40},
+        {id : 54, range_name : "50% and above", ischecked : false, discount_range : 50},
+        {id : 55, range_name : "60% and above", ischecked : false, discount_range : 60},
+        {id : 56, range_name : "70% and above", ischecked : false, discount_range : 70},
+        {id : 57, range_name : "80% and above", ischecked : false, discount_range : 80}
     ]
 
     const [category, setCategory] = useState(categories);
@@ -216,23 +217,67 @@ function FilterComp({handleFilters}) {
         setDiscount(updatedDiscount);
     }
 
-    const handleAddFilters = () => {
-        category.map((item) => item.ischecked === true ? handleFilters(item.category_name) : "");
-        brand.map((item) => item.ischecked === true ? handleFilters(item.brand_name) : "");
-        price.map((item) => item.ischecked === true ? handleFilters(item.range_name) : "");
-        color.map((item) => item.ischecked === true ? handleFilters(item.color_name) : "");
-        discount.map((item) => item.ischecked === true ? handleFilters(item.range_name) : "");
+    const handleAddCategotryFilters = () => {
+        category.map((item) => item.ischecked && handleCategoryFilters(item.category_name));
+        
+        // brand.map((item) => item.ischecked === true ? handleBrandFilter(item.brand_name) : "");
+        // price.map((item) => item.ischecked === true ? handlePriceFilter(item.range_name) : "");
+        // color.map((item) => item.ischecked === true ? handleColorFilter(item.color_name) : "");
+        // discount.map((item) => item.ischecked === true ? handleDiscountFilter(item.range_name) : "");
     }
 
+    // const handleRemoveCategoryFilters = () => {
+    //     category.map((item) => !item.ischecked && handleRemoveCategory(item.category_name));
+    // }
+
+    const handleAddBrandFilters = () => {
+        brand.map((item) => item.ischecked === true ? handleBrandFilter(item.brand_name) : "");
+    }
+
+    const handleAddPriceFilters = () => {
+        price.map((item) => item.ischecked === true ? handlePriceFilter(item.range_name) : "");
+    }
+
+    const handleAddColorFilters = () => {
+        color.map((item) => item.ischecked === true ? handleColorFilter(item.color_name) : "");
+    }
+
+    const handleAddDiscountFilters = () => {
+        discount.map((item) => item.ischecked === true ? handleDiscountFilter(item.discount_range) : "");
+    }
+    
+        
 
     useEffect(() => {
-        handleAddFilters();
-    }, [category, brand, price, color, discount]);
+        handleAddCategotryFilters();
+        // handleRemoveCategoryFilters();
+        // if (window.scrollY > 1200) {
+        //     alert((window.scrollY));
+        //     // scrollRef.current.scrollTo({top : 500, behavior: 'smooth'});
+        
+        // }
+    }, [category]);
+
+    useEffect(() => {
+        handleAddBrandFilters();
+    }, [brand])
+
+    useEffect(() => {
+        handleAddPriceFilters();
+    }, [price])
+
+    useEffect(() => {
+        handleAddColorFilters();
+    }, [color])
+
+    useEffect(() => {
+        handleAddDiscountFilters();
+    }, [discount])
   
 
 
     return (
-        <div id={styles.main_wrapper}>
+        <div id={styles.main_wrapper} style={window.scrollY > 400 && window.scrollY < 800 ? {marginTop : "200px"} : window.scrollY >= 800 && window.scrollY < 1200 ? {marginTop : "400px"} : window.scrollY >= 1200 && window.scrollY < 1600 ? {marginTop : "600px"} : window.scrollY >= 1600 && window.scrollY < 2000 ? {marginTop : "800px"} : window.scrollY >= 2000 && window.scrollY < 2400 ? {marginTop : "1400px"} : window.scrollY >= 2400 && window.scrollY < 2800 ? {marginTop : "1800px"} : window.scrollY >= 2800 && window.scrollY < 3200 ? {marginTop : "2200px"} : window.scrollY >= 3200 && window.scrollY < 3600 ? {marginTop : "2400px"} : window.scrollY >= 3600 ? {marginTop : "2500px"} : {marginTop : "0px"}}>
             <div className={styles.category_wrapper}>
                 <div className={styles.filter_header}>CATEGORIES</div>
                 {
@@ -264,7 +309,7 @@ function FilterComp({handleFilters}) {
                 }
             </div>
             <div className={styles.category_wrapper}>
-                <div className={styles.filter_header}>PRICE</div>
+                <div className={styles.filter_header}>COLOR</div>
                 {
                     color.map((item, a) => <div key={item.id} className={styles.listing_div2} onClick={() => handleToggleCheck(item.id)}>
                         <div className={item.ischecked === false ? styles.img_div : styles.img_div2}><img src={item.ischecked ? "https://i.imgur.com/2kY5gDz.png" : "https://i.imgur.com/YDWK16F.png"} alt="" className={styles.img} /></div>
@@ -275,7 +320,7 @@ function FilterComp({handleFilters}) {
                 }
             </div>
             <div className={styles.category_wrapper}>
-                <div className={styles.filter_header}>CATEGORIES</div>
+                <div className={styles.filter_header}>DISCOUNT RANGE</div>
                 {
                     discount.map((item, a) => <div key={item.id} className={styles.listing_div3} onClick={() => handleToggleCheck(item.id)}>
                         <div className={item.ischecked === false ? styles.img_div : styles.img_div2} style={{marginTop:"2px", width:"22px", height:"22px"}}><img src={item.ischecked ? "https://i.imgur.com/vJsnaOY.png" : "https://i.imgur.com/HwMqW7Q.png"} alt="" className={styles.img} /></div>

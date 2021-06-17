@@ -1,4 +1,4 @@
-import { GET_DATA_FAILURE, GET_DATA_FILTER, GET_DATA_REQUEST, GET_DATA_SUCCESS } from "./actionType";
+import { GET_DATA_FAILURE, GET_DATA_FILTER, GET_DATA_REQUEST, GET_DATA_SUCCESS, SET_FILTER_DATA, UPDATE_FILTER_DATA } from "./actionType";
 
 
 
@@ -27,6 +27,16 @@ const productsReducer = (state = init, action) => {
             }
         }    
         case GET_DATA_FILTER: {
+            return {
+                ...state, filterData : action.payload, isLoading : false
+            }
+        }
+        case UPDATE_FILTER_DATA: {
+            return {
+                ...state, filterData : action.payload, isLoading : false
+            }
+        }
+        case SET_FILTER_DATA: {
             return {
                 ...state, filterData : action.payload, isLoading : false
             }
