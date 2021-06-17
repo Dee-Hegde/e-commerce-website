@@ -11,13 +11,14 @@ import { useHistory } from "react-router-dom"
 const SearchDiv=styled.div`
     display: none;
     position: absolute;
-    width: 25%;
-    height: 30vh;
+    width: 55%;
+    height: 60vh;
     margin-left:-50px;
+    margin-top:25px;
     background-color: white;
-    border:1px solid grey;
-    box-shadow: 5px 5px 5px grey;
     text-align: left;
+   transition-delay:20s;
+   transition-duration: 2s;
 `
 
 const NavLinkdiv= styled.div`
@@ -30,18 +31,22 @@ const NavLinkdiv= styled.div`
 `
 const LinkContainer= styled.div`
     width: 30%;
-    margin-top: 20px;
-    height: 8vh;
-    background-color:white;
     margin:2%;
+    margin-top: 18px;
+    height: 6vh;
+    background-color:white;
+    
     padding-top: 4px;
 
 &:hover{
+  
     border-bottom: 3px solid #f04d68;
     cursor: pointer;
     
 }
 &:hover ${SearchDiv}{
+transition-delay:20s;
+transition-duration: 2s;
  display :block;
 }
 `
@@ -51,20 +56,31 @@ const Navtitle = styled.p`
     background-color: white;
     &:hover ${SearchDiv}{
         display :block;
+       transition-duration: 2s;
+       transition-delay:20s;
     }
 `
 
 function Navbar() {
     const navData=[
         {title:"men",
+        sub:"Topwear",
         list:["t-shirt","casual shirts","formal Shirts","jackets","Blazers","suits"]},
+
         {title:"women",
+        sub:"Indian Fusion",
         list:["kurtas","saree","salvaars","dress materials","Tops","skirts&palazzos"]},
+
         {title:"kids",
+        sub:"Topwear",
         list:["t-shirt","shirts","jeans","shorts","trousers","ethnic wear"]},
+
         {title:"home&livings",
+        sub:"Topwear",
         list:["bedsheets","blankets","bedding sets","bed covers","pillows","pillow covers"]},
+
         {title:"beauty",
+        sub:"Topwear",
         list:["lipstick","lip gloss","lip liner","eye liner","kajal","foundation"]}
     ]
     let history = useHistory();
@@ -83,6 +99,7 @@ function Navbar() {
                           <LinkContainer >
                             <Link className={styles.navLinks} to={`/${item.title}`}><h4>{item.title.toUpperCase()}</h4></Link>
                             <SearchDiv >
+                                <h5 className={styles.navLinks3}>{item.sub}</h5>
                                    {item.list.map(el=>(<Navtitle><p onClick={()=>handleClick(el)} className={styles.navLinks2}>{el.toUpperCase()}</p></Navtitle>))}
                             </SearchDiv>
                             </LinkContainer>
