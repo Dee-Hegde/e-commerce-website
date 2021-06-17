@@ -1,0 +1,49 @@
+.Footerclass{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    margin-left: 100px;
+    padding: 0px 100px;
+    height: 70vh;
+
+}
+
+.Footerclassdiv1{
+    width: 20%;
+   margin: 3%;
+   cursor: pointer;
+    text-align: left;
+    color: rgb(163, 163, 163);
+    line-height: 15px;
+}
+.Footerclassdiv2{
+    width: 30%;
+   margin: 3%;
+   cursor: pointer;
+    text-align: left;
+}
+.footericon1{
+    width: 50%;
+}
+.footericon2{
+    width: 45%;
+    margin-left: 5px;
+}
+.colorblack{
+    color: black;
+}
+.footer4{
+    margin-top: 40px;
+    margin-left: 50px;
+}
+.footer5{
+    display: flex;
+    justify-content:space-around ;
+
+}
+.footerspan{
+    color: rgb(71, 71, 247);
+    font-weight: 600;
+    cursor: pointer;
+}
