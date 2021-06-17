@@ -37,6 +37,7 @@
     color:rgb(40,44,63) ;
     font-size: 13.5px;
     margin-left: 20px;
+    padding-left: 40px;
 }
 .navLinks2:hover{
     color:black ;
@@ -44,6 +45,7 @@
     font-size: 14px;
 }
 .navLinks3{
+    padding-left: 40px;
     text-decoration: none;
     color:rgb(243, 73, 101) ;
     font-size: 15px;
