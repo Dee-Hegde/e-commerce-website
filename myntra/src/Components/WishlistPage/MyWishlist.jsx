@@ -229,7 +229,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from "./styles.module.css"
 import { useDispatch, useSelector } from "react-redux";
-import { deleteWishData, getWishData, postWishData } from '../../Redux/Wishlist/action';
+import { deleteWishData, getWishData, patchWishData, patchWishEmptySize } from '../../Redux/Wishlist/action';
 import SubNavbar from './SubNavbar';
 import errorIcon from "./images/errorIcon.jpg";
 import { postBagData } from '../../Redux/Bag/action';
@@ -244,6 +244,7 @@ const MyWishlist = () => {
     const [isSizeSelected, setIsSizeSelected] = useState(false)
     const [isSizeNotSelected, setIsSizeNotSelected] = useState(false)
     const [isMovedToBag, setIsMovedToBag] = useState(false)
+    const [isSame, setIsSame] = useState("")
 
     const wishlistData = useSelector(state=>state.wishlist.wishlistData)
     // const bagData = useSelector(state=>state.bag.bagData)
@@ -269,9 +270,11 @@ const MyWishlist = () => {
         setWishlistModelArray(updatedWishlistModel)
     }
 
-    const handleModelWishClose = () => {
+    const handleModelWishClose = (idx) => {
         setWishlistModel(false)
         setIsSizeSelected(false)
+        setIsSame("")
+        dispatch( patchWishEmptySize(idx) )
     }
 
     const handleModelWishRetain = () => {
@@ -282,8 +285,11 @@ const MyWishlist = () => {
       setIsSizeNotSelected(true) 
     }
 
-    const handleSizeSelect = (sizex) => {
+    const handleSizeSelect = (idx, sizex) => {
       setIsSizeSelected(true)
+      setIsSame(sizex)
+      console.log(idx, sizex);
+      dispatch( patchWishData(idx, sizex) )
     }
 
     // const handleDoneWithSize = () => {
@@ -299,6 +305,8 @@ const MyWishlist = () => {
 
       const updatedBag = wishlistData.filter(el=> el.id===idx )
       dispatch( postBagData(updatedBag[0]) )
+      setIsSame("")
+
     }
 
     // const handleNothing = () => {}
@@ -332,6 +340,7 @@ const MyWishlist = () => {
     // console.log(isSizeSelected);
     // console.log(wishlistModel);
     // console.log(wishlistModelArray);
+    console.log(isSame);
 
 
     return <> 
@@ -371,7 +380,10 @@ const MyWishlist = () => {
         ) : (
         <div>
             <img src="https://i.imgur.com/GEy4DvJ.png" alt="emptyWishlist" width="100%" />
-            <button className={styles.btnCntShop}>CONTINUE SHOPPING</button>
+            <Link to="/" >
+              <button className={styles.btnCntShop}>CONTINUE SHOPPING</button>
+            </Link>
+
             {/* <br /><br />
             { filterData.map((item,i)=> 
             <button onClick={()=>handleWishlist(item.id)}>wishCheck{item.id}</button>
@@ -407,7 +419,7 @@ const MyWishlist = () => {
             </div>
             <div className={styles.marginTop}>Item successfully added to bag</div>
 
-            <div> <Link to="/bag"><button className={styles.viewBagBtn}>VIEW BAG</button></Link> </div>
+            <div> <Link to="/cart"><button className={styles.viewBagBtn}>VIEW BAG</button></Link> </div>
           </div> 
         }
                 
@@ -415,7 +427,7 @@ const MyWishlist = () => {
           <div >
             { wishlistModel && wishlistModelArray.map((e,i)=> 
             <div key={i}>
-              <div className={styles.modelBg} onClick={handleModelWishClose} ></div>
+              <div className={styles.modelBg} onClick={()=>handleModelWishClose(e.id)} ></div>
 
               <div  onClick={handleModelWishRetain} className={styles.modelCard} key={i}>
                   <div >
@@ -436,7 +448,7 @@ const MyWishlist = () => {
                     <div className={`${styles.titleFont} ${styles.font16} ${styles.align}`}>Select Size</div>
                     <div className={styles.gridBtn}>
                       { e.sizes.map((size,i)=> <div key={i}>
-                        <div onClick={()=>handleSizeSelect(size)} className={`${styles.sizeDiv}`}><div>{size}</div></div>
+                        <div onClick={()=>handleSizeSelect(e.id, size)} className={ isSame==size ? `${styles.sizeSelectedDiv}` : `${styles.sizeDiv}`}><div>{size}</div></div>
                       </div> ) }
                     </div>
                     <br />
@@ -448,7 +460,7 @@ const MyWishlist = () => {
                 </div>
 
                 <div className={styles.closeModel}> 
-                    <div onClick={handleModelWishClose} > × </div> 
+                    <div onClick={()=>handleModelWishClose(e.id)} > × </div> 
                 </div>
             </div>
             ) }

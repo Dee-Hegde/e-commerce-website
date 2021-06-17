@@ -58,6 +58,25 @@ export const deleteWishFailure = (err) => {
     }
 }
 
+export const patchWishRequest = () => {
+    return {
+        type: "PATCH_WISH_REQUEST"
+    }
+}
+
+export const patchWishSuccess = () => {
+    return {
+        type: "PATCH_WISH_SUCCESS"
+    }
+}
+
+export const patchWishFailure = (err) => {
+    return {
+        type: "PATCH_WISH_FAILURE",
+        payload: err
+    }
+}
+
 export const postWishData = payload => dispatch => {
     dispatch( postWishRequest() )
 
@@ -68,6 +87,32 @@ export const postWishData = payload => dispatch => {
     })
     .catch(err=> {
         dispatch( postWishFailure() )
+    })
+}
+
+export const patchWishData = (idx, sizex) => dispatch => {
+    dispatch( patchWishRequest() )
+
+    return axios.patch(`https://masai-project.herokuapp.com/wihlist/${idx}`, { selected_size: `${sizex}` } )
+    .then(res => {
+        dispatch( patchWishSuccess() )
+        dispatch( getWishData() )
+    })
+    .catch(err=> {
+        dispatch( patchWishFailure() )
+    })
+}
+
+export const patchWishEmptySize = (idx) => dispatch => {
+    dispatch( patchWishRequest() )
+
+    return axios.patch(`https://masai-project.herokuapp.com/wihlist/${idx}`, { selected_size: "" } )
+    .then(res => {
+        dispatch( patchWishSuccess() )
+        dispatch( getWishData() )
+    })
+    .catch(err=> {
+        dispatch( patchWishFailure() )
     })
 }
 
