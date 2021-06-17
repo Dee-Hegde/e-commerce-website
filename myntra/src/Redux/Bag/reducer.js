@@ -44,9 +44,13 @@ export const bagReducer = (state=initState, {type, payload}) => {
         }    
         
         case GET_BAG_SUCCESS :
+        const updated = []
+        for (let i=payload.length-1; i>=0; i--) {
+            updated.push(payload[i])
+        }
         return {
             ...state,
-            bagData: payload,
+            bagData: updated,
             isLoading: false,
             isError: false,
             isSuccess: true

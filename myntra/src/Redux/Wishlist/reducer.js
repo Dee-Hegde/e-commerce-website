@@ -46,9 +46,13 @@ export const wishlistReducer = (state=initState, {type, payload}) => {
         }    
         
         case GET_WISH_SUCCESS :
+        const updated = []
+        for (let i=payload.length-1; i>=0; i--) {
+            updated.push(payload[i])
+        }
         return {
             ...state,
-            wishlistData: payload,
+            wishlistData: updated,
             isLoading: false,
             isError: false,
             isSuccess: true
