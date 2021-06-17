@@ -7,6 +7,7 @@ import Navbar from '../Components/Navbar/Navbar';
 import WishlistMainPage from '../Components/WishlistPage/WishlistMainPage';
 import { TShirtMainPage } from '../Components/T-Shirt/TshirtMainPage';
 import UserDetails from "../Components/Login/UserDetails"
+import BagMainPage from '../Components/BagPage/BagMainPage';
 
 function Routes() {
     return (
@@ -34,6 +35,9 @@ function Routes() {
                 </Route>
                 <Route path="/login/userdetails">
                     <UserDetails/>
+                </Route>
+                <Route path="/cart">
+                    <BagMainPage/>
                 </Route>
              
             </Switch>

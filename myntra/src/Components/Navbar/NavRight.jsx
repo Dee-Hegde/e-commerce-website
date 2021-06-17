@@ -17,7 +17,7 @@ function NavRight() {
             <h5><img className={styles.userlogo} src={wishlist} alt="" />
                <br/> Wishlist</h5>
             </div>
-            <div onClick={()=>history.push("/bag")}>
+            <div onClick={()=>history.push("/cart")}>
             <h5><img className={styles.userlogo} src={bag} alt="" />
                 <br/>Bag</h5>
             </div>

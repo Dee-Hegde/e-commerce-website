@@ -4,12 +4,15 @@ import thunk from "redux-thunk"
 import { loginReducer } from "./Login/reducer"
 import { productsReducer } from "./ProductListing/reducer"
 import { wishlistReducer } from "./Wishlist/reducer"
+import { bagReducer } from "./Bag/reducer"
 
 
 const rootreducer = combineReducers({
     loginred:loginReducer,
     products:productsReducer,
-    wishlist:wishlistReducer
+    wishlist:wishlistReducer,
+    bag:bagReducer
+
 })
 
 
