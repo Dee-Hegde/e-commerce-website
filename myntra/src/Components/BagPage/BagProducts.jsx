@@ -5,10 +5,13 @@ import styles from "./bag.module.css";
 import wishStyles from "../WishlistPage/styles.module.css";
 import { postWishData } from '../../Redux/Wishlist/action';
 
+
 const BagProducts = () => {
 
     const [bagModel, setBagModel] = useState(false)
     const [bagModelArray, setBagModelArray] = useState([])
+    const [sizeModel, setSizeModel] = useState(false)
+    const [QtyModel, setQtyModel] = useState(false)
 
     const bagData = useSelector(state=>state.bag.bagData)
     const dispatch = useDispatch()
@@ -54,7 +57,13 @@ const BagProducts = () => {
         // setIsSizeSelected(false)
     }
 
+    const handleSizeModel = () => {
+        setSizeModel(true)
+    }
 
+    const handleQtyModel = () => {
+        setQtyModel(true)
+    }
 
     useEffect(()=> {
         dispatch( getBagData() )    
@@ -85,6 +94,10 @@ const BagProducts = () => {
                                     <div className={styles.fontBold} >{e.title}</div>
                                     <div>{e.sub_heading}</div>
                                     <div className={`${styles.font14} ${styles.gray}`}>Sold by: Omnitech Retail </div>
+                                    <div className={`${styles.gridData} `} >
+                                        <div className={`${styles.subGridDiv} ${styles.marginTop} `}>Size:{e.selected_size}▼  </div>
+                                        <div className={`${styles.subGridDiv} ${styles.marginTop} `}>Qty:{e.quantity}▼</div>
+                                    </div>
                                 </div>
                                 <div className={styles.productDivThird}>
                                     <div className={styles.fontBold}>₹{Math.floor(Number(e.price)*((100-Number(e.discount))/100))}</div>
