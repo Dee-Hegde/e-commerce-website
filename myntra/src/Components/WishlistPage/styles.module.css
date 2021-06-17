@@ -10,14 +10,14 @@
 
 .subNav {
     background-color: #03A685;
-    padding: 5px;
+    padding: 3px;
     color: #FFFFFF;
     font-size: 14px;
     font-weight: bold;
     width: 100%;
     position: fixed;
     top: 0;
-    margin-top: 95px;
+    margin-top: 75px;
 }
 
 .heading {
@@ -46,7 +46,7 @@
 .cancelIcon {
     width: 23px;
     height: 23px;
-    border: 1px solid rgb(29, 29, 29);
+    /* border: 1px solid rgb(29, 29, 29); */
     cursor: pointer;
     font-size: 22px;
     font-weight: 500;
@@ -172,6 +172,24 @@
 }
 
 .sizeDiv div {
+    background: none;
+    margin-top: 6px;
+}
+
+.sizeSelectedDiv {
+    width: 40px;
+    height: 40px;
+    /* border: 1px solid; */
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50%;
+    /* color: grey; */
+    border: 1px solid #FF3E6C;
+    color: #FF3E6C;
+}
+
+.sizeSelectedDiv div {
     background: none;
     margin-top: 6px;
 }
