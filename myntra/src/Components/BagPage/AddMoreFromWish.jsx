@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AddMoreFromWish = () => {
     return (
-        <Link to="/wishlist" >
+        <Link className={`${styles.textDec}`} to="/wishlist" >
             <div className={`${styles.addMoreBox}`}>
                 <div>
                     <img src={heartIcon} alt="" width="20px" />

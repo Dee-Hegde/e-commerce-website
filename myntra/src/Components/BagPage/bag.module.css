@@ -306,6 +306,10 @@
     margin-top: -7px;
 }
 
+.textDec {
+    text-decoration: none;
+}
+
 .lineHeight {
     line-height: 2;
 }

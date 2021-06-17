@@ -45,13 +45,14 @@ const BagProducts = () => {
         // const deletedProduct = bagData.filter(item=>item.id===idx )
         // setDelProduct(deletedProduct[0])
         dispatch( deleteBagData(idx) )
+
+        const updatedWishlist = bagData.filter(el=> el.id===idx )
+        dispatch( postWishData(updatedWishlist[0]) )
+
         setBagModel(false)
         // setIsMovedToBag(true)
         // setIsSizeSelected(false)
-  
-        const updatedWishlist = bagData.filter(el=> el.id===idx )
-        dispatch( postWishData(updatedWishlist[0]) )
-      }
+    }
 
 
 
@@ -62,7 +63,7 @@ const BagProducts = () => {
     }, [dispatch])
     // console.log(bagData);
     // console.log(bagModel);   
-    // console.log(bagModelArray);
+    console.log(bagModelArray);
     
     return (
         <div>
@@ -96,7 +97,7 @@ const BagProducts = () => {
                             
                             <div className={`${styles.gridBtn}`} >
                                 <div onClick={()=>handleModelBag(e.id)} className={`${styles.removeDiv}`}> <span className={`${styles.cursor}`}>REMOVE</span> </div>
-                                <div> <span onClick={()=>handleDeleteFromBag(e.id)} className={`${styles.cursor}`}>MOVE TO WISHLIST</span> </div>
+                                <div> <span onClick={()=>handleMoveToWishlist(e.id)} className={`${styles.cursor}`}>MOVE TO WISHLIST</span> </div>
                             </div>
                         </div>
                     )
