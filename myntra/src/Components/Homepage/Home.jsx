@@ -2,6 +2,7 @@ import React from 'react'
 import ExitingDeals from './ExitingDeals'
 import HomeOffers from './HomeOffers'
 import OffersHer from './OffersHer'
+import Footer from "../Footer/Footer"
 
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
             <HomeOffers/>
             <ExitingDeals/>
             <OffersHer/>
+            <Footer/>
         </div>
     )
 }
