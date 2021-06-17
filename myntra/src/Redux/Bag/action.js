@@ -58,6 +58,25 @@ export const deleteBagFailure = (err) => {
     }
 }
 
+export const patchBagRequest = () => {
+    return {
+        type: "PATCH_BAG_REQUEST"
+    }
+}
+
+export const patchBagSuccess = () => {
+    return {
+        type: "PATCH_BAG_SUCCESS"
+    }
+}
+
+export const patchBagFailure = (err) => {
+    return {
+        type: "PATCH_BAG_FAILURE",
+        payload: err
+    }
+}
+
 export const postBagData = payload => dispatch => {
     dispatch( postBagRequest() )
 
@@ -70,6 +89,32 @@ export const postBagData = payload => dispatch => {
         dispatch( postBagFailure() )
     })
 }
+
+export const patchBagData = (clickedId, isQtySame) => dispatch => {
+    dispatch( patchBagRequest() )
+
+    return axios.patch(`https://masai-project.herokuapp.com/bag/${clickedId}`, { quantity: `${isQtySame}` } )
+    .then(res => {
+        dispatch( patchBagSuccess() )
+        dispatch( getBagData() )
+    })
+    .catch(err=> {
+        dispatch( patchBagFailure() )
+    })
+}
+
+// export const patchBagEmptyQty = (idx) => dispatch => {
+//     dispatch( patchBagRequest() )
+
+//     return axios.patch(`https://masai-project.herokuapp.com/bag/${idx}`, { quantity: 1 } )
+//     .then(res => {
+//         dispatch( patchBagSuccess() )
+//         dispatch( getBagData() )
+//     })
+//     .catch(err=> {
+//         dispatch( patchBagFailure() )
+//     })
+// }
 
 export const deleteBagData = (idx) => dispatch => {
     dispatch( deleteBagRequest() )

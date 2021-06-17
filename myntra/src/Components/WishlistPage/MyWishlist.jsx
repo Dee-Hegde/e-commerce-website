@@ -288,7 +288,7 @@ const MyWishlist = () => {
     const handleSizeSelect = (idx, sizex) => {
       setIsSizeSelected(true)
       setIsSame(sizex)
-      console.log(idx, sizex);
+      // console.log(idx, sizex);
       dispatch( patchWishData(idx, sizex) )
     }
 
@@ -340,7 +340,7 @@ const MyWishlist = () => {
     // console.log(isSizeSelected);
     // console.log(wishlistModel);
     // console.log(wishlistModelArray);
-    console.log(isSame);
+    // console.log(isSame);
 
 
     return <> 
@@ -379,15 +379,12 @@ const MyWishlist = () => {
         </div>
         ) : (
         <div>
+
             <img src="https://i.imgur.com/GEy4DvJ.png" alt="emptyWishlist" width="100%" />
             <Link to="/" >
               <button className={styles.btnCntShop}>CONTINUE SHOPPING</button>
             </Link>
 
-            {/* <br /><br />
-            { filterData.map((item,i)=> 
-            <button onClick={()=>handleWishlist(item.id)}>wishCheck{item.id}</button>
-            ) } */}
         </div>
           )}
         </div>

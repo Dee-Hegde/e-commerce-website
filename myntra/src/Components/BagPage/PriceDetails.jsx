@@ -7,11 +7,11 @@ const PriceDetails = () => {
     const bagData = useSelector(state=>state.bag.bagData)
 
     let totalAmount=0
-    bagData?.map((e) => totalAmount += Math.floor(Number(e.price)*((100-Number(e.discount))/100)) )
+    bagData?.map((e) => totalAmount += Math.floor(Number(e.price)*((100-Number(e.discount))/100)) * Number(e.quantity) )
     // console.log(totalAmount);
 
     let totalMRP=0
-    bagData?.map((e) => totalMRP += Math.floor(Number(e.price)) )
+    bagData?.map((e) => totalMRP += Math.floor(Number(e.price)) * Number(e.quantity) )
     // console.log(totalMRP);
     
     let totalDiscount = totalMRP - totalAmount;
@@ -19,7 +19,7 @@ const PriceDetails = () => {
 
     return (
         <div>
-            <div className={`${styles.fontBold} ${styles.font14} ${styles.marginTop20}`}>PRICE DETAILS ({bagData.length}Items)</div>
+            <div className={`${styles.fontBold} ${styles.font14} ${styles.marginTop20}`}>PRICE DETAILS ({bagData.length} Items)</div>
             <div className={`${styles.priceFlex} ${styles.marginTop}  `}>
                 <div>Total MRP</div>
                 <div>₹{totalMRP}</div>
