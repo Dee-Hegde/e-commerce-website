@@ -16,7 +16,7 @@ function Footer() {
     return (
         <div>
             <div className={styles.Footerclass}>
-                {footer1.map(item=><div className={styles.Footerclassdiv1}>
+                {footer1.map((item,j)=><div key={j} className={styles.Footerclassdiv1}>
                    <h5 className={styles.colorblack}>{item.title}</h5>
                         {item.sub.map(el=><p>{el}</p>)}
                     </div>)}

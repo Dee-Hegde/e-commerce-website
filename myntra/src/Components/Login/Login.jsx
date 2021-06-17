@@ -24,6 +24,7 @@ function Login() {
         .then(res=>{
             setUserdetails(res.data) 
         })
+        .catch(err=> alert(err))
     }
 
     const handleLogin=()=>{

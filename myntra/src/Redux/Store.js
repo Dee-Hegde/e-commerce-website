@@ -22,6 +22,4 @@ const store = createStore(rootreducer,
     ))
 
 
-    console.log(store.getState())
-
 export default store;

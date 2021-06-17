@@ -14,7 +14,6 @@ const loginstate={
 }
 
 export const loginReducer=(state=loginstate,{type,payload})=>{
-    console.log(state)
     switch(type){
         case LOGIN_REQUEST:
             return{
