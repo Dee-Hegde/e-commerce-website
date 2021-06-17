@@ -95,13 +95,13 @@ function Navbar() {
         <div className={styles.navbar}>
             <NavLeft/>
             <NavLinkdiv>
-                       {navData.map(item=>(
-                          <LinkContainer >
+                       {navData.map((item,j)=>(
+                          <LinkContainer key={j}>
                             <Link className={styles.navLinks} to={`/${item.title}`}><h4>{item.title.toUpperCase()}</h4></Link>
                             <SearchDiv >
                                 <h5 className={styles.navLinks3}>{item.sub}</h5>
-                                {item.list.map(el=>(<Navtitle><p onClick={()=>handleClick(el)} className={styles.navLinks2}>{el.toUpperCase()}</p></Navtitle>))}
-                                {item.list.map(el=>(<Navtitle><p onClick={()=>handleClick(el)} className={styles.navLinks2}>{el.toUpperCase()}</p></Navtitle>))}
+                                {item.list.map((el,z)=>(<Navtitle onClick={()=>handleClick(el)} className={styles.navLinks2}>{el.toUpperCase()}</Navtitle>))}
+                                {item.list.map((el,z)=>(<Navtitle onClick={()=>handleClick(el)} className={styles.navLinks2}>{el.toUpperCase()}</Navtitle>))}
                             
                             </SearchDiv>
                             
