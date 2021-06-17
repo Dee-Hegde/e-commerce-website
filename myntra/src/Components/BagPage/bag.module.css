@@ -306,6 +306,20 @@
     margin-top: -7px;
 }
 
+.gridData {
+    display: grid;
+    grid-template-columns: 25% 25% auto;
+    font-weight: bold;
+}
+
+.subGridDiv {
+    width: 45px;
+    background-color: rgb(243, 234, 234);
+    padding: 0px 8px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
 .textDec {
     text-decoration: none;
 }
