@@ -14,7 +14,7 @@ const SearchDiv=styled.div`
     width: 55%;
     height: 60vh;
     margin-left:-50px;
-    margin-top:25px;
+    margin-top:30px;
     background-color: white;
     text-align: left;
    transition-delay:20s;
@@ -33,9 +33,8 @@ const LinkContainer= styled.div`
     width: 30%;
     margin:2%;
     margin-top: 18px;
-    height: 6vh;
+    height: 5vh;
     background-color:white;
-    
     padding-top: 4px;
 
 &:hover{
