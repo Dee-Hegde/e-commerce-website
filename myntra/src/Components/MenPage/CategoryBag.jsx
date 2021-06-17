@@ -35,7 +35,7 @@ const CategoryBag = () => {
 
             <div className={styles.showCategory}> 
                 { categoryImages.map((el,i) => 
-                <Link to={`${el.item}?gender=${el.gender}`}>
+                <Link to={`/result?gender=${el.gender}`}>
                 <div key={i}><img src={el.src} alt="pic" width="90%" /></div>
                 </Link>
                 ) }
