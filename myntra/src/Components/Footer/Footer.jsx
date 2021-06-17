@@ -18,7 +18,7 @@ function Footer() {
             <div className={styles.Footerclass}>
                 {footer1.map((item,j)=><div key={j} className={styles.Footerclassdiv1}>
                    <h5 className={styles.colorblack}>{item.title}</h5>
-                        {item.sub.map(el=><p>{el}</p>)}
+                        {item.sub.map((el,z)=><p key={z}>{el}</p>)}
                     </div>)}
                 <div  className={styles.Footerclassdiv2}>
                     <h5>EXPERIENCE MYNTRA APP ON MOBILE</h5>
