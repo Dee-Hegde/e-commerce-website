@@ -11,14 +11,14 @@ import { useHistory } from "react-router-dom"
 const SearchDiv=styled.div`
     display: none;
     position: absolute;
-    width: 55%;
-    height: 60vh;
+    width: 15%;
+    height: 30vh;
     margin-left:-50px;
     margin-top:30px;
     background-color: white;
     text-align: left;
-   transition-delay:20s;
-   transition-duration: 2s;
+    transition-delay:20s;
+    transition-duration: 2s;
 `
 
 const NavLinkdiv= styled.div`
@@ -29,17 +29,18 @@ const NavLinkdiv= styled.div`
     width: 30%;
     margin-left: 0%;
 `
+
 const LinkContainer= styled.div`
     width: 30%;
     margin:2%;
-    margin-top: 18px;
+    margin-top: 16px;
     height: 5vh;
     background-color:white;
     padding-top: 4px;
 
 &:hover{
   
-    border-bottom: 3px solid #f04d68;
+    border-bottom: 4px solid #f04d68;
     cursor: pointer;
     
 }
@@ -99,8 +100,11 @@ function Navbar() {
                             <Link className={styles.navLinks} to={`/${item.title}`}><h4>{item.title.toUpperCase()}</h4></Link>
                             <SearchDiv >
                                 <h5 className={styles.navLinks3}>{item.sub}</h5>
-                                   {item.list.map(el=>(<Navtitle><p onClick={()=>handleClick(el)} className={styles.navLinks2}>{el.toUpperCase()}</p></Navtitle>))}
+                                {item.list.map(el=>(<Navtitle><p onClick={()=>handleClick(el)} className={styles.navLinks2}>{el.toUpperCase()}</p></Navtitle>))}
+                                {item.list.map(el=>(<Navtitle><p onClick={()=>handleClick(el)} className={styles.navLinks2}>{el.toUpperCase()}</p></Navtitle>))}
+                            
                             </SearchDiv>
+                            
                             </LinkContainer>
                        ))}
             </NavLinkdiv>

@@ -176,6 +176,11 @@
     margin-top: 6px;
 }
 
+.sizeDiv:hover {
+    border: 1px solid #FF3E6C;
+    color: #FF3E6C;
+}
+
 .sizeSelectedDiv {
     width: 40px;
     height: 40px;
@@ -194,10 +199,7 @@
     margin-top: 6px;
 }
 
-.sizeDiv:hover {
-    border: 1px solid #FF3E6C;
-    color: #FF3E6C;
-}
+
 
 /* .sizeSelect {
     border: 1px solid #FF3E6C;

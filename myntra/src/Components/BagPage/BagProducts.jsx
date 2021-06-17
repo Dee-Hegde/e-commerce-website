@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteBagData, getBagData } from '../../Redux/Bag/action';
+import { deleteBagData, getBagData, patchBagData } from '../../Redux/Bag/action';
 import styles from "./bag.module.css";
 import wishStyles from "../WishlistPage/styles.module.css";
 import { postWishData } from '../../Redux/Wishlist/action';
@@ -10,14 +10,17 @@ const BagProducts = () => {
 
     const [bagModel, setBagModel] = useState(false)
     const [bagModelArray, setBagModelArray] = useState([])
-    const [sizeModel, setSizeModel] = useState(false)
-    const [QtyModel, setQtyModel] = useState(false)
+    // const [sizeModel, setSizeModel] = useState(false)
+    const [isQtySelected, setIsQtySelected] = useState(false)
+    const [qtyModel, setQtyModel] = useState(false)
+    const [isQtySame, setIsQtySame] = useState(null)
+    const [clickedId, setClickedId] = useState(null)
 
     const bagData = useSelector(state=>state.bag.bagData)
     const dispatch = useDispatch()
 
     let totalAmount=0
-    bagData?.map((e) => totalAmount += Math.floor(Number(e.price)*((100-Number(e.discount))/100)) )
+    bagData?.map((e) => totalAmount += Math.floor(Number(e.price)*((100-Number(e.discount))/100)) * Number(e.quantity) )
     // console.log(totalAmount);
     
     const handleModelBag = (idx) => {
@@ -33,36 +36,41 @@ const BagProducts = () => {
     
     const handleDeleteFromBag = (idx) => {
         setBagModel(false)
-        // const deletedProduct = bagData.filter(item=>item.id===idx )
-        // setDelProduct(deletedProduct[0])
         dispatch( deleteBagData(idx) )
-
-        // setIsMovedToBag(true)
-        // setIsSizeSelected(false)
-  
-        // const updatedBag = wishlistData.filter(el=> el.id===idx )
-        // dispatch( postBagData(updatedBag[0]) )
     }
 
     const handleMoveToWishlist = (idx) => {
-        // const deletedProduct = bagData.filter(item=>item.id===idx )
-        // setDelProduct(deletedProduct[0])
         dispatch( deleteBagData(idx) )
 
         const updatedWishlist = bagData.filter(el=> el.id===idx )
         dispatch( postWishData(updatedWishlist[0]) )
 
         setBagModel(false)
-        // setIsMovedToBag(true)
-        // setIsSizeSelected(false)
     }
 
-    const handleSizeModel = () => {
-        setSizeModel(true)
+    const handleModelBagQtyClose = () => {
+        setQtyModel(false)
+        setIsQtySelected(false)
+        setIsQtySame(null)
     }
 
-    const handleQtyModel = () => {
+    const handleQtyModel = (idx) => {
         setQtyModel(true)
+        setClickedId(idx)
+    }
+
+    const handleQtySelect = ( qtyx) => {
+        setIsQtySelected(true)
+        setIsQtySame(qtyx)
+        // console.log( qtyx);
+    }
+
+    const handleQtyDone = (clickedId, isQtySame) => {
+        // console.log(clickedId, isQtySame);
+        dispatch( patchBagData(clickedId, isQtySame) )
+        setQtyModel(false)
+        setIsQtySame(null)
+
     }
 
     useEffect(()=> {
@@ -72,7 +80,12 @@ const BagProducts = () => {
     }, [dispatch])
     // console.log(bagData);
     // console.log(bagModel);   
-    console.log(bagModelArray);
+    // console.log(bagModelArray);
+    // console.log(qtyModel);
+    // console.log(isQtySelected);
+    // console.log(clickedId);
+    // console.log(isQtySame);
+    
     
     return (
         <div>
@@ -95,8 +108,8 @@ const BagProducts = () => {
                                     <div>{e.sub_heading}</div>
                                     <div className={`${styles.font14} ${styles.gray}`}>Sold by: Omnitech Retail </div>
                                     <div className={`${styles.gridData} `} >
-                                        <div className={`${styles.subGridDiv} ${styles.marginTop} `}>Size:{e.selected_size}▼  </div>
-                                        <div className={`${styles.subGridDiv} ${styles.marginTop} `}>Qty:{e.quantity}▼</div>
+                                        <div className={`${styles.subGridDiv1} ${styles.marginTop} `}>Size:{e.selected_size}▼  </div>
+                                        <div onClick={()=>handleQtyModel(e.id)} className={`${styles.subGridDiv2} ${styles.marginTop} `}>Qty:{e.quantity}▼</div>
                                     </div>
                                 </div>
                                 <div className={styles.productDivThird}>
@@ -132,28 +145,12 @@ const BagProducts = () => {
                             <div className={`${wishStyles.align} ${wishStyles.marginLeft}`}>
                                 <div className={` ${styles.font15} `}>Remove Item</div>
                                 <div className={` ${styles.font15} ${styles.gray}`}>Are you sure you want to remove this item?</div>
-                                {/* <div>
-                                    <span className={`${wishStyles.titleFont} ${wishStyles.font16}`}> ₹{Math.floor(Number(e.price)*((100-Number(e.discount))/100))} </span>
-                                    <span className={`${wishStyles.mrpFont} ${wishStyles.font16}`}> ₹{e.price}</span>
-                                    <span className={`${wishStyles.discountFont} ${wishStyles.font16}`}> ({e.discount}% OFF) </span>
-                                </div> */}
                             </div>
                         </div>
                         <div className={`${styles.gridModelBtn}`} >
                             <div className={`${styles.removeDiv}`}> <span onClick={()=>handleMoveToWishlist(e.id)} className={` ${styles.cursor}`} > MOVE TO WISHLIST</span> </div>
                             <div> <span onClick={()=>handleDeleteFromBag(e.id)} className={`${styles.cursor} ${styles.blue}`}>REMOVE</span> </div>
                         </div>
-                        {/* <hr /> */}
-                        {/* <div className={`${wishStyles.titleFont} ${wishStyles.font16} ${wishStyles.align}`}>Select Size</div> */}
-                        {/* <div className={wishStyles.gridBtn}>
-                        { e.sizes.map((size,i)=> <div key={i}>
-                            <div onClick={()=>handleSizeSelect(size)} className={`${wishStyles.sizeDiv}`}><div>{size}</div></div>
-                        </div> ) }
-                        </div>
-                        <br />
-                        { isSizeSelected && <div className={wishStyles.seller}>Seller: <span> Omnitech Retail</span> </div> } */}
-
-                        {/* <button onClick={ {} } className={`${wishStyles.doneBtn} ${wishStyles.font16}`}>Done</button> */}
                     </div>
                     
                     </div>
@@ -164,6 +161,44 @@ const BagProducts = () => {
                 </div>
                 ) }
             </div>
+        </div>
+
+
+
+        <div >
+            {
+                qtyModel && 
+                <>
+                <div className={styles.bagQtyModelBg} onClick={handleModelBagQtyClose} ></div>
+                <div className={`${styles.qtyDivBox}`} >
+                
+                <div className={`${styles.font16} ${styles.fontBold} ${styles.leftAlign}`}>Select Quantity</div>
+                
+                <div className={styles.gridQtyBtn}>
+                { ["01", "02", "03","04",'05',"06","07","08","09","10"].map((e,i)=> 
+                
+                <div  key={i}>
+            
+                    <div onClick={()=>handleQtySelect(e)} className={ isQtySame===e ? `${styles.sizeSelectedQtyDiv}` : `${styles.sizeQtyDiv}`} >
+                        <div>{e}</div>
+                    </div>
+                    
+                </div> )}
+                </div>
+
+                <div onClick={()=>handleQtyDone(clickedId ,isQtySame)} className={`${styles.doneQtyBtn} ${styles.marginTop}`} >DONE</div>
+                <div className={styles.closeQtyBagModel}> 
+                    <div onClick={handleModelBagQtyClose} > × </div> 
+                </div>
+
+                </div>
+                
+                
+                </>
+            }
+            
+            {/* no use */}
+            <div>{isQtySelected}</div> 
         </div>
 
             

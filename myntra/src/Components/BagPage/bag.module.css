@@ -312,12 +312,119 @@
     font-weight: bold;
 }
 
-.subGridDiv {
-    width: 45px;
-    background-color: rgb(243, 234, 234);
+.subGridDiv1 {
+    width: 50px;
+    background-color: rgb(235, 232, 232);
+    padding: 0px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.subGridDiv2 {
+    width: 55px;
+    background-color: rgb(235, 232, 232);
     padding: 0px 8px;
     border-radius: 2px;
     cursor: pointer;
+}
+
+.sizeQtyDiv {
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50%;
+}
+
+.sizeQtyDiv div {
+    background: none;
+    margin-top: 6px;
+}
+
+.sizeQtyDiv:hover {
+    border: 1px solid #FF3E6C;
+    color: #FF3E6C;
+}
+
+.sizeSelectedQtyDiv {
+    width: 40px;
+    height: 40px;
+    /* border: 1px solid; */
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50%;
+    /* color: grey; */
+    border: 1px solid #FF3E6C;
+    color: #FF3E6C;
+}
+
+.sizeSelectedQtyDiv div {
+    background: none;
+    margin-top: 6px;
+}
+
+.gridQtyBtn {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    column-gap: 10px;
+    row-gap: 15px;
+    padding: 20px 0px;
+}
+
+.qtyDivBox {
+    background-color: white;
+    width: 280px;
+    padding: 25px;
+    /* border: 2px solid red; */
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    margin-left: 21%;
+    margin-top: 200px;
+    /* opacity: 90%; */
+}
+
+.doneQtyBtn {
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #FF3E6C;
+    color: white;
+    cursor: pointer;
+}
+
+.bagQtyModelBg {
+    width: 150%;
+    height: 100vh;
+    background-color: rgb(177, 170, 170);
+    opacity: 50%;
+    position: fixed;
+    top: 0;
+    margin-left: -50%;
+}
+
+.closeQtyBagModel {
+    width: 23px;
+    height: 23px;
+    border: 1px solid grey;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 600;
+    position: fixed;
+    top: 0;
+    margin-left: 242px;
+    margin-top: 226px;
+    border-radius: 50%;
+    /* color: grey; */
+}
+
+.closeQtyBagModel div {
+    background: none;
+    margin-top: -7px;
 }
 
 .textDec {
@@ -335,6 +442,10 @@
 .borderBottom {
     /* width: 46%; */
     border-bottom: 1px solid rgb(214, 211, 211);
+}
+
+.leftAlign {
+    text-align: left;
 }
 
 .marginTop {
