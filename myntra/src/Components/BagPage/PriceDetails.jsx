@@ -1,9 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import styles from "./bag.module.css"
 
 const PriceDetails = () => {
 
+    const history = useHistory()
     const bagData = useSelector(state=>state.bag.bagData)
 
     let totalAmount=0
@@ -16,6 +18,10 @@ const PriceDetails = () => {
     
     let totalDiscount = totalMRP - totalAmount;
     // console.log(totalDiscount);
+
+    const handleOrderPlaced = () => {
+        history.push("/orderplaced")
+    }
 
     return (
         <div>
@@ -45,7 +51,7 @@ const PriceDetails = () => {
                 <div>Total Amount</div>
                 <div>₹{totalAmount}</div>
             </div>
-            <div className={`${styles.placeOrderBtn} ${styles.marginTop} ${styles.font14} ${styles.fontBold} ${styles.cursor}`} >PLACE ORDER</div>
+            <div onClick={handleOrderPlaced} className={`${styles.placeOrderBtn} ${styles.marginTop} ${styles.font14} ${styles.fontBold} ${styles.cursor}`} >PLACE ORDER</div>
         </div>
     );
 };

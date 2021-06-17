@@ -4,7 +4,7 @@ import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_REQUEST } from "./Acti
 const loginstate={
     timeLoading:false,
     timeError:false,
-    userAuth:false,
+    userAuth:true,
     userReg:false,
     username:"",
     cardnumber:"",
