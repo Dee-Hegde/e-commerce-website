@@ -2,7 +2,6 @@ import React from 'react'
 import Kurtas from "./Homepage Images/Kurtas sets.png"
 import Sarees from "./Homepage Images/Sarees.png"
 import Dresses from "./Homepage Images/Dresses.png"
-import Lingrie from "./Homepage Images/Lingrie.png"
 import Long from "./Homepage Images/loungwear.png"
 import styles from "./Home.module.css"
 import Jwellery from "./Homepage Images/Jewellary.png"
@@ -21,12 +20,15 @@ import Shorts from "./Homepage Images/ForHim/Shorts.png"
 import SportsShoes from "./Homepage Images/ForHim/SportsShoes.png"
 import Suits from "./Homepage Images/ForHim/Suits.png"
 import Kurtasmen from "./Homepage Images/ForHim/KurtasMen.png"
+import { useHistory } from 'react-router'
 
 function OffersHer() {
-    let lin1=[Kurtas,Sarees,Dresses,Lingrie,Long]
+    let lin1=[Kurtas,Sarees,Dresses,Kurtas,Long]
     let lin2=[Jwellery,Tops,Handbag,Trackpant,Wplus]
     let lin3=[Tshirt,Longwear,Shirts,Inner,Trac]
     let lin4=[FlipFlops, Shorts,SportsShoes,Kurtasmen,Suits]
+
+    const history=useHistory()
 
     return (
         <div>
@@ -42,7 +44,7 @@ function OffersHer() {
         </div>
         <img className={styles.spotimg2} src={ForHim} alt="" />
         <div className={styles.dealsdiv2}>
-            {lin3.map((item,j)=>(<div key={j}>
+            {lin3.map((item,j)=>(<div onClick={()=>history.push("./result")} key={j}>
                 <img className={styles.dealsimg} src={item} alt="" />
             </div>))}
         </div>
