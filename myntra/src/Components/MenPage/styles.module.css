@@ -9,6 +9,10 @@
     font-family: sans-serif;
 } */
 
+.marginTop80 {
+    margin-top: 79px;
+}
+
 .fonts {
     font-size: 28px;
     color: #3E4152;
@@ -29,4 +33,19 @@
     display: grid;
     grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
     padding: 50px;
+}
+
+.parentDots {
+    display: flex;
+    gap: 10px;
+    padding-top: 20px;
+    width: 100px;
+    margin: auto;
+}
+
+.parentDots > div {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: gray;
 }

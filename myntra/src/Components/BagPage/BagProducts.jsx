@@ -96,7 +96,7 @@ const BagProducts = () => {
 
             <div>
                 {
-                    bagData.map((e,i)=> 
+                    bagData.length>0 && bagData.map((e,i)=> 
                         <div className={styles.bagCard} key={i}>
 
                             <div className={styles.productDiv}>

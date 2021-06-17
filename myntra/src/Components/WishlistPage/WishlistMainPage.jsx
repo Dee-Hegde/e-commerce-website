@@ -11,6 +11,7 @@ const WishlistMainPage = () => {
     return userAuth ? (
         <div className={styles.navMargin} >
             <MyWishlist/>
+            
         </div>
     ) : (
         <Redirect to="/login" />

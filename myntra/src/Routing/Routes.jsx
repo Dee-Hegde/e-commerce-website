@@ -8,6 +8,7 @@ import WishlistMainPage from '../Components/WishlistPage/WishlistMainPage';
 import { TShirtMainPage } from '../Components/T-Shirt/TshirtMainPage';
 import UserDetails from "../Components/Login/UserDetails"
 import BagMainPage from '../Components/BagPage/BagMainPage';
+import OrderPlaced from "../Components/BagPage/OrderPlaced.jsx";
 
 function Routes() {
     return (
@@ -38,6 +39,9 @@ function Routes() {
                 </Route>
                 <Route path="/cart">
                     <BagMainPage/>
+                </Route>
+                <Route path="/orderplaced">
+                    <OrderPlaced />
                 </Route>
              
             </Switch>

@@ -12,6 +12,7 @@ import belowImage from "./Images/belowImage.png";
 const ShoppingBag = () => {
     return (
         <>
+
         <div className={styles.horPartition}>
             <div></div>
             <div className={styles.borderRight}>
@@ -19,6 +20,7 @@ const ShoppingBag = () => {
                 <Offers />
                 <BagProducts />
                 <AddMoreFromWish />
+
             </div>
             
             <div className={styles.billing}>

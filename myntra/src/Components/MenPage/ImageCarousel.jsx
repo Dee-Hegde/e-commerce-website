@@ -7,7 +7,7 @@ import images4 from "./Images/Carousel4.jpg";
 import images5 from "./Images/Carousel5.webp";
 
 const ImageCarousel = () => (
-  <Carousel autoPlay>
+  <Carousel autoPlay showIndicators={false} showThumbs={false} >
 
     <div>
       <img
@@ -42,3 +42,6 @@ const ImageCarousel = () => (
 )
 
 export default ImageCarousel;
+
+
+

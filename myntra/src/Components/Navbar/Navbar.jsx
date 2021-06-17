@@ -12,7 +12,7 @@ const SearchDiv=styled.div`
     display: none;
     position: absolute;
     width: 15%;
-    height: 30vh;
+    height: 42vh;
     margin-left:-50px;
     margin-top:30px;
     background-color: white;
