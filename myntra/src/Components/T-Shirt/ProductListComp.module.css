@@ -44,11 +44,20 @@
     position: absolute;
     margin-top: -280px;
     border: 0px solid red;
+    background: none;
 }
+
+
+/* .tag_wrapper > div {
+    background: none;
+    margin-top: -px;
+    border: 2px solid blue;
+} */
 
 .tag_wrapper > img {
     width: 100%;
     border: 0px solid red;
+    background: none;
 }
 
 .tag_wrapper > div {
@@ -58,8 +67,9 @@
     font-size: 12px;
     width: 120px;
     font-weight: 700;
-    margin-top: -23px;
+    margin-top: -28px;
     margin-left: -16px;
+    background: none;
 }
 
 .item_image {

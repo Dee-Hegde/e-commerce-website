@@ -100,7 +100,7 @@ function ProductListComp({sort, order, type, categoryFilters, brandFilter, price
         <>
         <div id={styles.main_wrapper}>
             {
-                filterData.map((item) => <Link to={`/products/${item.id}`}  className={styles.link} key={item.id}><div onMouseLeave={() => handleResetDots(item.id)} onMouseOver={() => handleChangeDots(item.id)}  className={styles.item_div} >
+                filterData.map((item) => <div  className={styles.link} key={item.id}><div onMouseLeave={() => handleResetDots(item.id)} onMouseOver={() => handleChangeDots(item.id)}  className={styles.item_div} >
                     <div>
                         <Carousel  showThumbs={false} selectedItem={item.isdotvalue} showIndicators={false} showArrows={false} showStatus={false}>
                             <img  alt="" src={item.images[0]} className={styles.item_image}/>
@@ -139,7 +139,7 @@ function ProductListComp({sort, order, type, categoryFilters, brandFilter, price
                             <div>{`(${item.discount}% OFF)`}</div>
                         </div>}
                     </div>
-                    </div> </Link> )
+                    </div> </div> )
             }
             <div className={styles.pagination_wrapper}>
                 <div>{`Page ${page} of ${pageArray.length}`}</div>
