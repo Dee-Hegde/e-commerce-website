@@ -43,12 +43,12 @@ function Login() {
                         <div>
                             <span className={styles.heading}>Login</span><span className={styles.heading2}>or</span><span className={styles.heading1}>Signup</span><br/>
                             <div className={styles.inputdiv}>
-                            <input className={styles.input1} type="text" value={`+91`} onChange={()=>handleChange()} />
-                            <input onChange={(e)=>setMobile(e.target.value)} value={mobile} className={styles.input2} type="text" placeholder="Mobile Number" />
-                            <p className={styles.terms}>By continuing, I agree to the <span className={styles.conditions}>Terms of Use</span> & <span className={styles.conditions}>Privacy Policy</span></p> 
-                            <button className={styles.loginbutton} onClick={()=>{handleLogin();history.go(-1)}}>CONTINUE</button>
-                            <p>Have trouble in logging in? <span className={styles.conditions}>Get help</span></p>
-                        </div>
+                                <input className={styles.input1} type="text" value={`+91`} onChange={()=>handleChange()} />
+                                <input onChange={(e)=>setMobile(e.target.value)} value={mobile} className={styles.input2} type="text" placeholder="Mobile Number" />
+                                <p className={styles.terms}>By continuing, I agree to the <span className={styles.conditions}>Terms of Use</span> & <span className={styles.conditions}>Privacy Policy</span></p> 
+                                <button className={styles.loginbutton} onClick={()=>{handleLogin();history.go(-1)}}>CONTINUE</button>
+                                <p>Have trouble in logging in? <span className={styles.conditions}>Get help</span></p>
+                             </div>
                         </div>
 
                     </div>
