@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
+.filter_wrapper {
+    display: flex;
+    gap: 100px;
+}
+
 .filter_header {
     text-align: left;
     padding: 20px 0px 15px 25px;
@@ -8,4 +13,14 @@
     font-family: 'Catamaran', sans-serif;
     font-weight: 700;
     border: 0px solid blue;
+}
+
+.clearall {
+    border: 0px solid red;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: #FF3F6C;
+    padding: 23px 0px 15px 0px;
+    cursor: pointer;
 }

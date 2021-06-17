@@ -6,6 +6,6 @@ export const GET_DATA_FILTER = "GET_DATA_FILTER"
 
 export const UPDATE_FILTER_DATA = "UPDATE_FILTER_DATA"
 
-
+export const SET_FILTER_DATA = "UPDATED_FILTER_DATA"
 
 

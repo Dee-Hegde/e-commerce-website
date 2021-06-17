@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getData, getDataFilterBySort, getDataFilterByType, updateData } from "../../Redux/ProductListing/action";
+import { getData, getDataFilterBySort, getDataFilterByType, setFilterData, updateData } from "../../Redux/ProductListing/action";
 import styles from "./ProductListComp.module.css"
 import tagImage from "./Images/Capturenew24bg.png"
 import {Link} from "react-router-dom"
 import {Carousel} from "react-responsive-carousel"
-function ProductListComp({sort, order, type}) {
+import { postWishData } from "../../Redux/Wishlist/action";
+function ProductListComp({sort, order, type, categoryFilters, brandFilter, priceFilter, colorFilter, discountFilter}) {
     const dispatch = useDispatch();
     const {data, filterData} = useSelector((state) => state.products)
     const [page, setPage] = useState(1);
-    const [dots, setDots] = useState(0);
+    // const [filtersData, setFiltersData] = useState([]);
+    // const [dots, setDots] = useState(0);
+    
+
+    const handleAddDataToWishlist = (id) => {
+        const wishListItem = filterData.filter(el => el.id === id) 
+        dispatch(postWishData(wishListItem[0]));
+    }
+    
     
     const pageArray = []
     const dotsArray = [0, 1, 2, 3]
@@ -21,20 +30,43 @@ function ProductListComp({sort, order, type}) {
         pageArray.push(i + 1)
     }
 
-    console.log(pageArray);
+    // console.log(pageArray);
 
     useEffect(() => {
-        dispatch(getData())
+        dispatch(getData());
 
+            if (brandFilter.length === 0 && colorFilter.length === 0 && discountFilter.length === 0) {
+                dispatch(getDataFilterBySort(page, sort, order));
+            }
+            
+            if((brandFilter.length === 1 && colorFilter.length === 1) || (brandFilter.length === 1 && discountFilter.length ===1) || (colorFilter.length === 1 && discountFilter.length === 1) || (brandFilter.length === 1 && colorFilter.length === 1 && discountFilter.length ===1)) {
+                const filtersData = data.filter((item) => (item.brand === brandFilter[0] && item.color === colorFilter[0]) || (item.brand === brandFilter[0] && item.discount === discountFilter[0]) || (item.color === colorFilter[0] && item.discount === discountFilter[0]) || (item.brand === brandFilter[0] && item.color === colorFilter[0] && item.discount === discountFilter[0]));
+                dispatch(setFilterData(filterData));
+            } 
+            else if(brandFilter.length > 0 || colorFilter.length > 0 || discountFilter.length > 0) {
+                const filtersData = data.filter((item) => item.brand === brandFilter[0] || item.brand === brandFilter[1] || item.brand === brandFilter[2] || item.color === colorFilter[0] || item.color === colorFilter[1] || item.discount > discountFilter[0])
+                dispatch(setFilterData(filtersData));
+            }
         
-        dispatch(getDataFilterBySort(page, sort, order));
-        
+
+                // if(filtersData.length > 0) {
+                //     const filtersData = data.filter((item) => item.brand === brandFilter[0])
+                //     dispatch(setFilterData(filtersData))
+                // }
+
+        // if(brandFilter.length === 1 && colorFilter.length === 0 && discountFilter.length === 0) {
+        //     dispatch((getDataFilterByBrand1(page, brandFilter)));
+        // }
+
+        // if(brandFilter.length === 2 && colorFilter.length === 0 && discountFilter.length === 0) {
+        //     dispatch((getDataFilterByBrand2(page, brandFilter)));
+        // }
         
         if(type === true && sort === "") {
             dispatch(getDataFilterByType(page));
         }
 
-    }, [page, dispatch, sort, order, type]);
+    }, [page, dispatch, sort, order, type, brandFilter, colorFilter, discountFilter]);
 
 
     const handleChangeDots = (id) => {
@@ -68,7 +100,7 @@ function ProductListComp({sort, order, type}) {
         <>
         <div id={styles.main_wrapper}>
             {
-                filterData.map((item) => <Link to={`/products/${item.id}`} key={item.id} className={styles.link}><div onMouseLeave={() => handleResetDots(item.id)} onMouseOver={() => handleChangeDots(item.id)}  className={styles.item_div} >
+                filterData.map((item) => <Link to={`/products/${item.id}`}  className={styles.link} key={item.id}><div onMouseLeave={() => handleResetDots(item.id)} onMouseOver={() => handleChangeDots(item.id)}  className={styles.item_div} >
                     <div>
                         <Carousel  showThumbs={false} selectedItem={item.isdotvalue} showIndicators={false} showArrows={false} showStatus={false}>
                             <img  alt="" src={item.images[0]} className={styles.item_image}/>
@@ -96,11 +128,11 @@ function ProductListComp({sort, order, type}) {
                             <div className={styles.dots_div}></div>
                             <div className={styles.dots_div}></div> */}
                             {
-                                dotsArray.map(el => <div className={ item.isdotvalue === el ? styles.dots_div2 : styles.dots_div} key={item + 2}></div> )
+                                dotsArray.map(el => <div className={ item.isdotvalue === el ? styles.dots_div2 : styles.dots_div} key={el}></div> )
                             }
                         </div>
-                        <div className={styles.wishlist_button}><img src="https://i.imgur.com/7l3ABgX.png" alt="wishlist_image"  style={{width:"23px", height:"23px", marginLeft:"43px"}}/> <div className={styles.wishlist_text}>WISHLIST</div></div>
-                        <div className={styles.sizes}>Sizes: {item.sizes.map((el, a) => a === item.sizes.length - 1 ? <span key={a}>{el}</span>  : <span key={a}>{`${el}, `}</span> )}</div>
+                        <div onClick={() => handleAddDataToWishlist(item.id)} className={styles.wishlist_button}><img src="https://i.imgur.com/7l3ABgX.png" alt="wishlist_image"  style={{width:"23px", height:"23px", marginLeft:"43px"}}/> <div className={styles.wishlist_text}>WISHLIST</div></div>
+                        <div className={styles.sizes}>Sizes: {item.sizes.map((el, a) => a === item.sizes.length - 1 ? <span key={a}>{el}</span>  : <span key={el}>{`${el}, `}</span> )}</div>
                         {item.discount === 0 ? <div className={styles.price}>Rs. {item.price}</div> : <div className={styles.item_price_div}>
                             <div>Rs. {Math.floor(item.price * (100 - item.discount) / 100)}</div>
                             <div>Rs. {item.price}</div>
@@ -114,7 +146,7 @@ function ProductListComp({sort, order, type}) {
                 <div className={styles.sub_pagi_wrapper}>
                 <div className={page === 1 ? styles.visi_hidden : ""} onClick={() => setPage((prev) => prev - 1)}><span>{`<`}</span>  Previous</div>
                 <div className={styles.pagi_number}>
-                {pageArray.map((item) => <div className={page === item ? styles.bg_color : ""} key={item + 1} onClick={() => setPage(item)}>{item}</div> )}
+                {pageArray.map((el) => <div className={page === el ? styles.bg_color : ""}  onClick={() => setPage(el)} key={el}>{el}</div> )}
                 </div>
                 <div onClick={() => setPage((prev) => prev + 1)}>Next  <span>{`>`}</span></div>
                 </div>
