@@ -5,7 +5,9 @@
     cursor: pointer;
 }
 .logo{
-    width: 55px;
+    width: 45px;
+    padding-top: 18px;
+    padding-left: 50px;
     background-color: white;
     vertical-align: middle;
 
@@ -15,9 +17,8 @@
     flex-direction: row;
     justify-content: space-around;
     background-color: white;
-    height: 10vh;
     position: fixed;
-    padding: 10px 0px;
+    height: 12vh;
     top: 0;
     width: 100%;
     z-index: 10;
@@ -29,21 +30,32 @@
 .navLinks{
     text-decoration: none;
     color:rgb(40,44,63) ;
-    font-size: 15px;
+    font-size: 13px;
 }
 .navLinks2{
     text-decoration: none;
     color:rgb(40,44,63) ;
-    font-size: 12px;
+    font-size: 13.5px;
     margin-left: 20px;
 }
-.navLinks>h4{
-  background-color: white;
+.navLinks2:hover{
+    color:black ;
+    font-weight: 600;
+    font-size: 14px;
 }
+.navLinks3{
+    text-decoration: none;
+    color:rgb(243, 73, 101) ;
+    font-size: 15px;
+    margin-left: 20px;
+}
+/* .navLinks>h4{
+  background-color: white;
+} */
 
 /* searchBar */
 .navserach{
-    width: 35%;
+    width: 32%;
     background-color: white;
     margin-left: 0%;
 }

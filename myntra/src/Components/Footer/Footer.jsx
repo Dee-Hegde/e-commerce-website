@@ -34,7 +34,7 @@ function Footer() {
                 </div>
             </div>
             <div className={styles.footer5}>
-            <p>In case of any concern, <span className={styles.footerspan}>Contact Us</span></p>
+            <p>In case of any concern,<span className={styles.footerspan}>Contact Us</span></p>
             <p>© 2021 www.myntra.com. All rights reserve</p>
             </div>      
         </div>
