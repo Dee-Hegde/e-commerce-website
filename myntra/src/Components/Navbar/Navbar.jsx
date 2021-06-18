@@ -87,7 +87,7 @@ function Navbar() {
     const handleClick=(el)=>{
         el=el.toLowerCase()
         const param= new URLSearchParams(`category=${el}`)
-        history.push(`/result/${param}`)
+        history.push(`/result?${param}`)
     }
     
 

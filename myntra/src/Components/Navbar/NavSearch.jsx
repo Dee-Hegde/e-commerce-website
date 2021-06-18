@@ -8,8 +8,8 @@ function NavSearch() {
     const url="result?"
     const [words, setWords]=React.useState("")
     const handleClick=()=>{
-        const param= new URLSearchParams(`${url}category=${words}`)
-        history.push(`${param}`)
+        
+        history.push(`/result?catagory=${words}`)
     }
     return (
         <div className={styles.navserach}>
