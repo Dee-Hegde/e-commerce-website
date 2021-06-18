@@ -120,3 +120,16 @@
     background-color: rgb(243, 73, 101);
     background-color: pi;
 }
+.countnav{
+    width: 17px;
+    height: 17px;
+    position: fixed;
+    top: 0;
+    margin-top: 5px;
+    margin-left: 18px;
+    text-align: center;
+    z-index: 11;
+    border-radius: 50%;
+    color: white ;
+    background-color: rgb(243, 73, 101);
+}
