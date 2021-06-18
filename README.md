@@ -1,4 +1,4 @@
-Batch :Samurai 2 3_1
+Batch :Samurai 2 (3_1)
 
 Sources:
 
