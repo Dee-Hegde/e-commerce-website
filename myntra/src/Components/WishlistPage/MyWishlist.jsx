@@ -82,8 +82,6 @@ const MyWishlist = () => {
 
     }
 
-    // const handleNothing = () => {}
-
     useEffect(()=> {
         dispatch( getWishData() )
         setWishlistModel(false)
@@ -138,8 +136,8 @@ const MyWishlist = () => {
                         </div>
                         <div className={styles.titleFont}>{e.title}</div>
                         <div className={styles.flexPrice}>
-                            <div className={styles.titleFont}>Rs.{Math.floor(Number(e.price)*((100-Number(e.discount))/100))}</div>
-                            <div className={styles.mrpFont}>Rs.{e.price}</div>
+                            <div className={styles.titleFont}>₹{Math.floor(Number(e.price)*((100-Number(e.discount))/100))}</div>
+                            <div className={styles.mrpFont}>₹{e.price}</div>
                             <div className={styles.discountFont}>({e.discount}% OFF)</div>
                         </div>
                         <br />
