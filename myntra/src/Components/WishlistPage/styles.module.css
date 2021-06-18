@@ -221,6 +221,11 @@
     color: white;
     cursor: pointer;
 }
+/* 
+.doneBtn:hover {
+    transform: rotate(0.25turn);
+    transform: scale(0.5) translate(-100%, -100%);
+} */
 
 .closeModel {
     width: 23px;
@@ -261,6 +266,7 @@
     border-radius: 6px;
     color: white;
     font-size: 10px;
+    /* transform:rotate(0.25turn) */
 }
 
 .modelStyle {

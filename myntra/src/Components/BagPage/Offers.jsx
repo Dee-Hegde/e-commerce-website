@@ -17,11 +17,11 @@ const Offers = () => {
                 <div className={styles.marginBottom}>Available Offers</div>
             </div>
             <div className={styles.offerList} >
-                <li>10% Instant Discount on ICICI Bank Credit and Debit Cards on a minimum spend of Rs 3,000. TCA</li>
+                <li>10% Instant Discount on Bank Of Baroda Credit Cards on a minimum spend of Rs 2,500. TCA</li>
+                {/* <li>10% Instant Discount on ICICI Bank Credit and Debit Cards on a minimum spend of Rs 3,000. TCA</li> */}
                 { show && <div>
-                    <li>10% Instant Discount on Bank Of Baroda Credit Cards on a minimum spend of Rs 2,500. TCA</li>
                     <li>5% Unlimited Cashback on Flipkart Axis Bank Credit Card. TCA</li>
-                    <li>10% Instant Discount on ICICI Bank Credit and Debit Cards on a minimum spend of Rs 3,000. TCA</li>
+                    {/* <li>10% Instant Discount on ICICI Bank Credit and Debit Cards on a minimum spend of Rs 3,000. TCA</li> */}
                     <li>10% Instant Discount on Bank Of Baroda Credit Cards on a minimum spend of Rs 2,500. TCA</li>
                     <li>5% Unlimited Cashback on Flipkart Axis Bank Credit Card. TCA</li>
                 </div> }
