@@ -122,7 +122,7 @@ const BagProducts = () => {
     // console.log(clickedId);
     // console.log(isQtySame);
     
-    console.log(bagModelSizesArray);
+    // console.log(bagModelSizesArray);
 
     
     return (
