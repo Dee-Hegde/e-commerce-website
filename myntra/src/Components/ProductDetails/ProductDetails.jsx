@@ -3,11 +3,15 @@ import React from 'react'
 import { useParams } from 'react-router'
 import styles from "./Product.module.css"
 import SubNavbar from "../WishlistPage/SubNavbar"
+import { useDispatch } from 'react-redux'
+import { postWishData } from '../../Redux/Wishlist/action'
+import { postBagData } from '../../Redux/Bag/action'
 
 function ProductDetails() {
     const [data, setData]=React.useState({})
     const [loading, setLoading]=React.useState(true)
     let {id}=useParams();
+    const dispatch = useDispatch()
 
     const getProductDetails=(id)=>{
         axios.get(`https://myntracloneserver.herokuapp.com/products/${id}`)
@@ -47,13 +51,13 @@ function ProductDetails() {
                </div>
                <div>
                    <h4 className={styles.Psize}>Select size</h4><br/>
-                   {(data.sizes).map((el,j)=><button className={styles.Psizebutton} key={j}>
+                   {(data.sizes).map((el,j)=><button onClick={()=>{}} className={styles.Psizebutton} key={j}>
                        <h4>{el}</h4>
                    </button>)}
                </div>
                <div className={styles.buttondiv}>
-                   <div className={styles.PbuttonBag}> <img src="" alt="" />ADD TO BAG</div>
-                   <div className={styles.pWhishlist}><img src="" alt="" />WISHLIST</div>
+                   <div onClick={()=>{dispatch(postBagData(data));alert("Product added to Bag")}}  className={styles.PbuttonBag}> <img src="" alt="" />ADD TO BAG</div>
+                   <div onClick={()=>{dispatch(postWishData(data));alert("Product added to Wishlist")}} className={styles.pWhishlist}><img src="" alt="" />WISHLIST</div>
                </div>
                <div className={styles.repeatmrp}>
                <strong className={styles.Pprice}>₹:{data.price}</strong>
