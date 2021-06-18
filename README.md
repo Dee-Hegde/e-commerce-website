@@ -34,7 +34,7 @@ React Text Collapse: React Text Collapse
 
 Members and their Responsibility
 
-Deepak Hegde (sm2_052) - Landing Page, NavBar, LoginPage,Dummy Datas,Git Merging,Project Polishing.
+Deepak Hegde (sm2_052) - Landing Page, NavBar, LoginPage,Dummy Datas,Git Merging.
 
 Ashwani Sahu (sm2_033) - WhishListpage, (Bag/cart)page, MenSection page.
 
