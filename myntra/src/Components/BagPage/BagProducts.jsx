@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteBagData, getBagData, patchBagData } from '../../Redux/Bag/action';
+import { deleteBagData, getBagData, patchBagData, patchBagSizesData } from '../../Redux/Bag/action';
 import styles from "./bag.module.css";
 import wishStyles from "../WishlistPage/styles.module.css";
 import { postWishData } from '../../Redux/Wishlist/action';
@@ -10,11 +10,17 @@ const BagProducts = () => {
 
     const [bagModel, setBagModel] = useState(false)
     const [bagModelArray, setBagModelArray] = useState([])
-    // const [sizeModel, setSizeModel] = useState(false)
+    
     const [isQtySelected, setIsQtySelected] = useState(false)
     const [qtyModel, setQtyModel] = useState(false)
     const [isQtySame, setIsQtySame] = useState(null)
     const [clickedId, setClickedId] = useState(null)
+    
+    const [bagModelSizesArray, setBagModelSizesArray] = useState([])
+    const [isSizesSelected, setIsSizesSelected] = useState(false)
+    const [sizesModel, setSizesModel] = useState(false)
+    const [isSizesSame, setIsSizesSame] = useState(null)
+    const [clickedSizesId, setClickedSizesId] = useState()
 
     const bagData = useSelector(state=>state.bag.bagData)
     const dispatch = useDispatch()
@@ -70,8 +76,38 @@ const BagProducts = () => {
         dispatch( patchBagData(clickedId, isQtySame) )
         setQtyModel(false)
         setIsQtySame(null)
+    }
+
+
+
+    const handleModelBagSizesClose = () => {
+        setSizesModel(false)
+        setIsSizesSelected(false)
+        setIsSizesSame(null)
+    }
+
+    const handleSizesModel = (idx) => {
+        setSizesModel(true)
+        setClickedSizesId(idx)
+        const updatedBagSizesModel = bagData.filter( item=>item.id===idx )
+        setBagModelSizesArray(updatedBagSizesModel[0])
+    }
+
+    const handleSizesSelect = ( sizesx) => {
+        setIsSizesSelected(true)
+        setIsSizesSame(sizesx)
+        // console.log( sizesx);
+    }
+
+    const handleSizesDone = (clickedSizesId, isSizesSame) => {
+        // console.log(clickedId, isQtySame);
+        dispatch( patchBagSizesData(clickedSizesId, isSizesSame) )
+        setSizesModel(false)
+        setIsSizesSame(null)
 
     }
+
+
 
     useEffect(()=> {
         dispatch( getBagData() )    
@@ -86,6 +122,8 @@ const BagProducts = () => {
     // console.log(clickedId);
     // console.log(isQtySame);
     
+    console.log(bagModelSizesArray);
+
     
     return (
         <div>
@@ -108,7 +146,7 @@ const BagProducts = () => {
                                     <div>{e.sub_heading}</div>
                                     <div className={`${styles.font14} ${styles.gray}`}>Sold by: Omnitech Retail </div>
                                     <div className={`${styles.gridData} `} >
-                                        <div className={`${styles.subGridDiv1} ${styles.marginTop} `}>Size:{e.selected_size}▼  </div>
+                                        <div onClick={()=>handleSizesModel(e.id)} className={`${styles.subGridDiv1} ${styles.marginTop} `}>Size:{e.selected_size}▼  </div>
                                         <div onClick={()=>handleQtyModel(e.id)} className={`${styles.subGridDiv2} ${styles.marginTop} `}>Qty:{e.quantity}▼</div>
                                     </div>
                                 </div>
@@ -200,6 +238,47 @@ const BagProducts = () => {
             {/* no use */}
             <div>{isQtySelected}</div> 
         </div>
+
+
+
+
+        <div >
+            {
+                sizesModel && 
+                <>
+                <div className={styles.bagQtyModelBg} onClick={handleModelBagSizesClose} ></div>
+                <div className={`${styles.qtyDivBox}`} >
+                
+                <div className={`${styles.font16} ${styles.fontBold} ${styles.leftAlign}`}>Select Size</div>
+                
+                <div className={styles.gridQtyBtn}>
+                { bagModelSizesArray.sizes.map((e,i)=> 
+                
+                <div  key={i}>
+            
+                    <div onClick={()=>handleSizesSelect(e)} className={ isSizesSame===e ? `${styles.sizeSelectedQtyDiv}` : `${styles.sizeQtyDiv}`} >
+                        <div>{e}</div>
+                    </div>
+                    
+                </div> )}
+                </div>
+
+                <div onClick={()=>handleSizesDone(clickedSizesId ,isSizesSame)} className={`${styles.doneQtyBtn} ${styles.marginTop}`} >DONE</div>
+                <div className={styles.closeQtyBagModel}> 
+                    <div onClick={handleModelBagSizesClose} > × </div> 
+                </div>
+
+                </div>
+                
+                
+                </>
+            }
+            
+            {/* no use */}
+            <div>{isSizesSelected}</div> 
+        </div>
+
+
 
             
         </div>

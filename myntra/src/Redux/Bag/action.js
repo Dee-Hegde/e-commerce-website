@@ -103,18 +103,18 @@ export const patchBagData = (clickedId, isQtySame) => dispatch => {
     })
 }
 
-// export const patchBagEmptyQty = (idx) => dispatch => {
-//     dispatch( patchBagRequest() )
+export const patchBagSizesData = (clickedSizesId, isSizesSame) => dispatch => {
+    dispatch( patchBagRequest() )
 
-//     return axios.patch(`https://masai-project.herokuapp.com/bag/${idx}`, { quantity: 1 } )
-//     .then(res => {
-//         dispatch( patchBagSuccess() )
-//         dispatch( getBagData() )
-//     })
-//     .catch(err=> {
-//         dispatch( patchBagFailure() )
-//     })
-// }
+    return axios.patch(`https://masai-project.herokuapp.com/bag/${clickedSizesId}`, { selected_size: `${isSizesSame}` } )
+    .then(res => {
+        dispatch( patchBagSuccess() )
+        dispatch( getBagData() )
+    })
+    .catch(err=> {
+        dispatch( patchBagFailure() )
+    })
+}
 
 export const deleteBagData = (idx) => dispatch => {
     dispatch( deleteBagRequest() )
