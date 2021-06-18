@@ -1,0 +1,10 @@
+
+            
+              
+               <div>
+                   {(data.sizes).map((el,j)=><div key={j}>
+                       <button>{el}</button>
+                   </div>)}
+               </div>   
+           
+           </div>

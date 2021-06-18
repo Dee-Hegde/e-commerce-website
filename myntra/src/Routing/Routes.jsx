@@ -9,6 +9,7 @@ import { TShirtMainPage } from '../Components/T-Shirt/TshirtMainPage';
 import UserDetails from "../Components/Login/UserDetails"
 import BagMainPage from '../Components/BagPage/BagMainPage';
 import OrderPlaced from "../Components/BagPage/OrderPlaced.jsx";
+import ProductDetails from '../Components/ProductDetails/ProductDetails';
 
 function Routes() {
     return (
@@ -31,7 +32,7 @@ function Routes() {
                 <Route path="/wishlist" exact>
                     <WishlistMainPage/>
                 </Route>
-                <Route path="/result">
+                <Route path="/result" exact>
                     <TShirtMainPage/>
                 </Route>
                 <Route path="/login/userdetails">
@@ -42,6 +43,9 @@ function Routes() {
                 </Route>
                 <Route path="/orderplaced">
                     <OrderPlaced />
+                </Route>
+                <Route path="/resultpage/:id">
+                   <ProductDetails/>
                 </Route>
              
             </Switch>
