@@ -52,7 +52,7 @@ function ProductDetails() {
                    </button>)}
                </div>
                <div className={styles.buttondiv}>
-                   <div onClick={()=> } className={styles.PbuttonBag}> <img src="" alt="" />ADD TO BAG</div>
+                   <div className={styles.PbuttonBag}> <img src="" alt="" />ADD TO BAG</div>
                    <div className={styles.pWhishlist}><img src="" alt="" />WISHLIST</div>
                </div>
                <div className={styles.repeatmrp}>
