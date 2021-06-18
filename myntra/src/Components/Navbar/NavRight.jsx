@@ -22,7 +22,7 @@ function NavRight() {
             </div>
             <div onClick={()=>history.push("/cart")}>
             <h5><img className={styles.userlogo} src={bag} alt="" />
-                     <span style={{color:"black", fontSize:'12px'}}>{bagData.lenght}</span>
+                    <div className={styles.countnav}>{bagData.length}</div>
                 <br/>Bag</h5>
                 
             </div>
