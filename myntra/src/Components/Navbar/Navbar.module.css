@@ -122,10 +122,11 @@
 }
 .countnav{
     width: 17px;
-    height: 17px;
+    height: px;
     position: fixed;
+    padding-bottom: 1.5px;
     top: 0;
-    margin-top: 5px;
+    margin-top: 6px;
     margin-left: 18px;
     text-align: center;
     z-index: 11;
