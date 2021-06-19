@@ -134,10 +134,11 @@
     color: #282c3f;
     border: 1px solid #282c3f;
     width: 35%;
+    text-align: center;
 }
 .buttondiv{
     display: flex;
-    justify-content: space-around;
+    column-gap: 2px;
 }
 .repeatmrp{
     margin-top: 15px;
