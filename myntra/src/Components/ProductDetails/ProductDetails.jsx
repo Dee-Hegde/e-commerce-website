@@ -6,6 +6,7 @@ import SubNavbar from "../WishlistPage/SubNavbar"
 import { useDispatch } from 'react-redux'
 import { postWishData } from '../../Redux/Wishlist/action'
 import { postBagData } from '../../Redux/Bag/action'
+import Sizebutton from './Sizebutton'
 
 function ProductDetails() {
     const [data, setData]=React.useState({})
@@ -49,11 +50,9 @@ function ProductDetails() {
                    <strong className={styles.Poffer} >({data.discount}%OFF)</strong>
                    <p className={styles.Ptax}>inclusive of all taxes</p>
                </div>
-               <div>
-                   <h4 className={styles.Psize}>Select size</h4><br/>
-                   {(data.sizes).map((el,j)=><button onClick={()=>{}} className={styles.Psizebutton} key={j}>
-                       <h4>{el}</h4>
-                   </button>)}
+               <h4 className={styles.Psize}>Select size</h4>
+               <div className={styles.SizeDiv}>
+                   {(data.sizes).map((el,j)=><Sizebutton key={j} el={el}></Sizebutton>)}
                </div>
                <div className={styles.buttondiv}>
                    <div onClick={()=>{dispatch(postBagData(data));alert("Product added to Bag")}}  className={styles.PbuttonBag}> <img src="" alt="" />ADD TO BAG</div>
