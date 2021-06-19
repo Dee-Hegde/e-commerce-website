@@ -36,9 +36,9 @@ Members and their Responsibility
 
 Deepak Hegde (sm2_052) - Landing Page, NavBar, LoginPage, Product description page, Git Merging, Heroku Server Maintainance.
 
-Ashwani Sahu (sm2_033) - WhishListpage, (Bag/cart)page, MenSection page.
+Ashwani Sahu (sm2_033) - WishList Page, Bag(cart) Page, Men Page.
 
-Shanoor Baalekundri (sm2_163) - Product list page, Heroku Server Maintainance.
+Shanoor Baalekundri (sm2_163) - Product list Page, Heroku Server Maintainance.
 
 
 Myntra is an Indian fashion e-commerce company headquartered in Bengaluru, Karnataka, India. The company was founded in 2007 to sell personalized gift items.In May 2014, Myntra.com was acquired by Flipkart.
