@@ -45,8 +45,8 @@ function ProductDetails() {
                 <p className={styles.Ptitle}>{data.title}</p>
                 <p className={styles.Psubtitle}>{data.sub_heading}</p>
                 <div>
-                   <strong className={styles.Pprice}>₹:{data.price}</strong>
-                   <s className={styles.Pdiscount}>₹:{data.dis_price}</s>
+                   <strong className={styles.Pprice}>₹{data.price}</strong>
+                   <s className={styles.Pdiscount}>₹{data.dis_price}</s>
                    <strong className={styles.Poffer} >({data.discount}%OFF)</strong>
                    <p className={styles.Ptax}>inclusive of all taxes</p>
                </div>
@@ -59,8 +59,8 @@ function ProductDetails() {
                    <div onClick={()=>{dispatch(postWishData(data));alert("Product added to Wishlist")}} className={styles.pWhishlist}><img src="" alt="" />WISHLIST</div>
                </div>
                <div className={styles.repeatmrp}>
-               <strong className={styles.Pprice}>₹:{data.price}</strong>
-                   <s className={styles.Pdiscount}>₹:{data.dis_price}</s>
+               <strong className={styles.Pprice}>₹{data.price}</strong>
+                   <s className={styles.Pdiscount}>₹{data.dis_price}</s>
                    <strong className={styles.Poffer} >({data.discount}%OFF)</strong>
                </div>
                <div className={styles.delivery}>
@@ -70,7 +70,7 @@ function ProductDetails() {
                 <p>Try & Buy might be available</p>
                </div>
                <div className={styles.delivery}>
-                <p>Applicable on: Orders above Rs. 1699</p>
+                <p>Applicable on: Orders above Rs.1699</p>
                 <p>Coupon code: FORU300</p>
                 <p>Expires in: 3 hours 40 minutes</p>
                 <p>Coupon Discount: Rs. 300 off (check cart for final savings)</p>
