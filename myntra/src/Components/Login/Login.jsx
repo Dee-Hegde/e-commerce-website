@@ -20,7 +20,7 @@ function Login() {
         getUser()
     },[])
     const getUser=()=>{
-        axios.get("https://myntracloneserver.herokuapp.com/users")
+        axios.get("https://masai-project.herokuapp.com/users")
         .then(res=>{
             setUserdetails(res.data) 
         })

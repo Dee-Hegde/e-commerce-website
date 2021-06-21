@@ -15,7 +15,7 @@ function ProductDetails() {
     const dispatch = useDispatch()
 
     const getProductDetails=(id)=>{
-        axios.get(`https://myntracloneserver.herokuapp.com/products/${id}`)
+        axios.get(`https://masai-project.herokuapp.com/product_data/${id}`)
         .then((res)=>{
            setData(res.data)
            setLoading(false)
@@ -23,9 +23,9 @@ function ProductDetails() {
     }
     React.useEffect(()=>{
         getProductDetails(id)
-    },[id])
+    },[])
   
-    console.log(data)
+    // console.log(data)
 
     return (loading)?<>loading</>: (
         <div className={styles.Pmaindiv}>
