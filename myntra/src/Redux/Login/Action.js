@@ -20,15 +20,16 @@ export const loginFail=()=>{
 export const loginProcess=(userdetails,mobile)=>(dispatch)=>{
     console.log("login")
     dispatch(loginRequest())
-    let payload= userdetails.filter(item=>item.mobilenumber===mobile)
+    let payload= userdetails.filter(item=>item.mobilenumber==mobile)
     payload=payload[0]
     if(payload === undefined){
         alert("User not found")
         dispatch(loginFail())
     }
     else{
-        let usrname=payload.username.toUpperCase()
-        alert(`WELCOME BACK ${usrname} `)
+        // let usrname=payload.username.toUpperCase()
+        
+        alert(`Welcome Back ${payload.username} `)
         dispatch(loginSuccess(payload))
     }
 
