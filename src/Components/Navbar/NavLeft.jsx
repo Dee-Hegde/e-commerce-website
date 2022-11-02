@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from "./navimages/Myntra-logo-png-ico.png"
+import Logo from "./navimages/logo.png"
 import styles from "./Navbar.module.css"
 import { useHistory } from "react-router-dom";
 
