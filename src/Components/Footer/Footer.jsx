@@ -21,7 +21,7 @@ function Footer() {
                         {item.sub.map((el,z)=><p key={z}>{el}</p>)}
                     </div>)}
                 <div  className={styles.Footerclassdiv2}>
-                    <h5>EXPERIENCE MYNTRA APP ON MOBILE</h5>
+                    <h5>EXPERIENCE APP ON MOBILE</h5>
                     <div>
                         <img className={styles.footericon1} src={googlePlay} alt="" />
                         <img className={styles.footericon2} src={Appstore} alt="" />
@@ -35,7 +35,7 @@ function Footer() {
             </div>
             <div className={styles.footer5}>
             <p>In case of any concern,<span className={styles.footerspan}>Contact Us</span></p>
-            <p>© 2021 www.myntra.com. All rights reserve</p>
+            <p>© 2021 All rights reserved by we 3 </p>
             </div>      
         </div>
     )

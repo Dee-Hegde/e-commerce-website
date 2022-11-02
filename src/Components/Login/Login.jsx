@@ -38,7 +38,7 @@ function Login() {
         <div className={styles.logincontainer}>
             <div className={styles.logindiv}>
                     <div className={styles.loginpromo}> 
-                    <img className={styles.couponcode} src={Coupon} alt="" />  
+                    {/* <img className={styles.couponcode} src={Coupon} alt="" />   */}
                     </div>
                     <div className={styles.inputcontainer}>
                         <div>
